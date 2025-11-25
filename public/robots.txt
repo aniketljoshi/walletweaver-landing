@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /.env
+
+Sitemap: https://walletweaver.com/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /

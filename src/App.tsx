@@ -1,5 +1,5 @@
 import Hero from './components/Hero';
-import TrustStrip from './components/TrustStrip';
+// import TrustStrip from './components/TrustStrip';
 import CoreValue from './components/CoreValue';
 import ProductGrid from './components/ProductGrid';
 import HowItWorks from './components/HowItWorks';
