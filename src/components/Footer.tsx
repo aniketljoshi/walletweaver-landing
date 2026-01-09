@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
 
           <div className="text-sm text-slate-500">
-            © 2025 WalletWeaver
+            © {new Date().getFullYear()} WalletWeaver
           </div>
         </div>
       </div>
