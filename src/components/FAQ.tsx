@@ -6,28 +6,36 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: 'Which chains do you support?',
-      answer: 'We currently support Ethereum, Base, Arbitrum, Optimism, Polygon, and Solana. We\'re actively expanding to cover additional EVM and non-EVM chains based on user demand.'
+      question: 'Which blockchains do you support?',
+      answer: 'We currently support Ethereum, Solana, Base, Arbitrum, and Polygon with real-time indexing. Additional chains are added based on customer demand — Enterprise customers can request priority chain support.'
     },
     {
-      question: 'Can we self-host?',
-      answer: 'Enterprise self-hosted deployments are available for qualified customers. This includes full data pipeline deployment, custom clustering logic, and dedicated infrastructure. Contact us to discuss your requirements.'
+      question: 'How do I access the API?',
+      answer: 'Sign up for a free account to get your API key instantly. Our GraphQL API comes with comprehensive documentation, interactive playground, and production-ready SDKs for TypeScript, Python, and Go.'
     },
     {
-      question: 'Who is WalletWeaver for?',
-      answer: 'WalletWeaver is built for funds, prop trading desks, protocols, research teams, and compliance professionals who need deep wallet-level intelligence to make informed decisions in crypto markets.'
+      question: 'What is the data latency?',
+      answer: 'Our Kafka-powered infrastructure delivers sub-second latency from on-chain event to queryable data. Real-time alerts hit your webhooks within milliseconds of block confirmation.'
     },
     {
-      question: 'How do I get early access?',
-      answer: 'Click "Apply for Early Access" or "Join the Waitlist" and fill out the application form. We\'re onboarding users in batches and prioritizing teams with specific use cases and feedback capacity.'
+      question: 'Is WalletWeaver SOC 2 compliant?',
+      answer: 'Yes. WalletWeaver maintains SOC 2 Type II compliance. We offer audit logs, role-based access control, and can provide attestation reports for Enterprise customers upon request.'
     },
     {
-      question: 'What makes WalletWeaver different from existing tools?',
-      answer: 'We focus on entity-level intelligence rather than just address tracking. Our clustering algorithms identify real entities behind wallet groups, and we provide API-first access for seamless integration into your existing workflows.'
+      question: 'Can I self-host WalletWeaver?',
+      answer: 'Enterprise customers have the option for self-hosted deployment in their own infrastructure. This includes the full data pipeline, clustering algorithms, and API layer. Contact our sales team to discuss requirements.'
     },
     {
-      question: 'Is there API documentation available?',
-      answer: 'API documentation will be shared with early access users. We provide GraphQL APIs for flexible querying and streaming endpoints for real-time data feeds.'
+      question: 'How does smart-money scoring work?',
+      answer: 'Our ML models analyze historical wallet performance across ROI, win rate, timing, and holding patterns. Scores are updated continuously as new on-chain data is processed. The methodology is documented in our API reference.'
+    },
+    {
+      question: 'What alert channels are supported?',
+      answer: 'Real-time alerts can be delivered via Telegram, Discord, Email, or custom Webhooks. Enterprise customers can also integrate with Slack and PagerDuty.'
+    },
+    {
+      question: 'Do you offer a free tier?',
+      answer: 'Yes. Our Free tier includes 1,000 API calls per month, access to all 5 chains, and the TypeScript SDK. It\'s perfect for exploring the platform and building prototypes before upgrading.'
     }
   ];
 
@@ -38,6 +46,9 @@ export default function FAQ() {
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Frequently Asked Questions
           </h2>
+          <p className="text-lg text-slate-400">
+            Everything you need to know about the WalletWeaver platform.
+          </p>
         </div>
 
         <div className="space-y-4">
@@ -54,16 +65,14 @@ export default function FAQ() {
                   {faq.question}
                 </span>
                 <ChevronDown
-                  className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform ${
-                    openIndex === index ? 'rotate-180' : ''
-                  }`}
+                  className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform ${openIndex === index ? 'rotate-180' : ''
+                    }`}
                 />
               </button>
 
               <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'max-h-96' : 'max-h-0'
-                }`}
+                className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96' : 'max-h-0'
+                  }`}
               >
                 <div className="px-6 pb-5">
                   <p className="text-slate-400 leading-relaxed">

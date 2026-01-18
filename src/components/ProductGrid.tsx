@@ -1,42 +1,42 @@
-import { GitBranch, User, Star, Radio, Shield, Database } from 'lucide-react';
+import { Search, Users, Trophy, LineChart, Copy, Bell } from 'lucide-react';
 
 export default function ProductGrid() {
   const products = [
     {
-      icon: GitBranch,
-      title: 'Wallet Graph Explorer',
-      status: 'live',
-      description: 'Visualize wallet relationships and transaction flows across chains'
-    },
-    {
-      icon: User,
-      title: 'Entity Profiles',
-      status: 'live',
-      description: 'Deep-dive into wallet clusters with enriched identity data'
-    },
-    {
-      icon: Star,
-      title: 'Smart Money Watchlists',
+      icon: Search,
+      title: 'Wallet Explorer',
       status: 'coming-soon',
-      description: 'Track high-conviction wallets and their latest moves'
+      description: 'Deep-dive into any wallet across 5 chains. Transaction history, portfolio composition, and behavioral patterns.'
     },
     {
-      icon: Radio,
-      title: 'Fund & KOL Radar',
+      icon: Users,
+      title: 'Entity Resolution',
       status: 'coming-soon',
-      description: 'Monitor notable entities and their portfolio changes'
+      description: 'ML-powered clustering identifies the real entities behind wallet addresses. See who you\'re really trading with.'
     },
     {
-      icon: Shield,
-      title: 'Risk & Compliance View',
+      icon: Trophy,
+      title: 'Smart Money Leaderboards',
       status: 'coming-soon',
-      description: 'Flag risky entities and assess counterparty exposure'
+      description: 'Ranked wallets by ROI, win rate, and conviction. Discover alpha before it becomes consensus.'
     },
     {
-      icon: Database,
-      title: 'Developer & Data APIs',
-      status: 'early-access',
-      description: 'Programmatic access to all wallet intelligence data'
+      icon: LineChart,
+      title: 'Token & Narrative Analytics',
+      status: 'coming-soon',
+      description: 'Track token flows, holder concentration, and emerging narratives across the smart money graph.'
+    },
+    {
+      icon: Copy,
+      title: 'Copy-Trading Engine',
+      status: 'coming-soon',
+      description: 'Automated signals when top wallets make moves. Integrate with your trading infrastructure via webhooks.'
+    },
+    {
+      icon: Bell,
+      title: 'Real-Time Alerts',
+      status: 'coming-soon',
+      description: 'Instant notifications via Telegram, Discord, Email, or Webhooks. Never miss a smart money move.'
     }
   ];
 
@@ -48,10 +48,10 @@ export default function ProductGrid() {
         </span>
       );
     }
-    if (status === 'early-access') {
+    if (status === 'beta') {
       return (
         <span className="px-2 py-1 bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold rounded-full">
-          Early Access
+          Beta
         </span>
       );
     }
@@ -67,8 +67,11 @@ export default function ProductGrid() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            What you'll get with WalletWeaver
+            Everything you need for on-chain alpha
           </h2>
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+            From wallet research to automated copy-trading — one platform for the entire workflow.
+          </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
