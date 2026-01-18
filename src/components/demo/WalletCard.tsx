@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { TrendingUp, TrendingDown, ExternalLink } from 'lucide-react';
+import { getNetworkIcon } from '../NetworkIcons';
 
 interface WalletCardProps {
     address: string;
@@ -43,6 +44,7 @@ export default function WalletCard({
     winRate,
 }: WalletCardProps) {
     const isPositive = pnl30d >= 0;
+    const NetworkIcon = getNetworkIcon(chain);
 
     return (
         <Link
@@ -63,9 +65,10 @@ export default function WalletCard({
                     <span className={`px-2 py-1 text-xs font-medium rounded-full border ${entityColors[entityType] || entityColors.trader}`}>
                         {entityType.replace('_', ' ')}
                     </span>
-                    <span className={`text-xs ${chainColors[chain] || 'text-slate-400'}`}>
-                        {chain}
-                    </span>
+                    <div className={`flex items-center gap-1 text-xs ${chainColors[chain] || 'text-slate-400'}`}>
+                        {NetworkIcon && <NetworkIcon className="w-3.5 h-3.5" />}
+                        <span className="capitalize">{chain}</span>
+                    </div>
                 </div>
             </div>
 

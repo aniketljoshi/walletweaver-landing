@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Network, ArrowRight, Zap, Play } from 'lucide-react';
+import { EthereumIcon, SolanaIcon, BaseIcon, ArbitrumIcon, PolygonIcon } from './NetworkIcons';
+import { Network, ArrowRight, Play } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -33,19 +34,19 @@ export default function Hero() {
 
           <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-slate-400 pt-2">
             <span className="flex items-center gap-1.5 px-3 py-1 bg-slate-800/50 rounded-full border border-slate-700/50">
-              <Zap className="w-3.5 h-3.5 text-blue-400" /> Ethereum
+              <EthereumIcon className="w-3.5 h-3.5 text-blue-400" /> Ethereum
             </span>
             <span className="flex items-center gap-1.5 px-3 py-1 bg-slate-800/50 rounded-full border border-slate-700/50">
-              <Zap className="w-3.5 h-3.5 text-purple-400" /> Solana
+              <SolanaIcon className="w-3.5 h-3.5 text-purple-400" /> Solana
             </span>
             <span className="flex items-center gap-1.5 px-3 py-1 bg-slate-800/50 rounded-full border border-slate-700/50">
-              <Zap className="w-3.5 h-3.5 text-blue-400" /> Base
+              <BaseIcon className="w-3.5 h-3.5 text-blue-400" /> Base
             </span>
             <span className="flex items-center gap-1.5 px-3 py-1 bg-slate-800/50 rounded-full border border-slate-700/50">
-              <Zap className="w-3.5 h-3.5 text-cyan-400" /> Arbitrum
+              <ArbitrumIcon className="w-3.5 h-3.5 text-cyan-400" /> Arbitrum
             </span>
             <span className="flex items-center gap-1.5 px-3 py-1 bg-slate-800/50 rounded-full border border-slate-700/50">
-              <Zap className="w-3.5 h-3.5 text-purple-400" /> Polygon
+              <PolygonIcon className="w-3.5 h-3.5 text-purple-400" /> Polygon
             </span>
           </div>
 

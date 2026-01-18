@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { TrendingUp, TrendingDown, Sparkles } from 'lucide-react';
+import { getNetworkIcon } from '../NetworkIcons';
 
 interface TokenCardProps {
     address: string;
@@ -31,6 +32,7 @@ export default function TokenCard({
     narrativeTags,
 }: TokenCardProps) {
     const isPositive = change24h >= 0;
+    const NetworkIcon = getNetworkIcon(chain);
 
     const formatPrice = (p: number) => {
         if (p < 0.0001) return p.toExponential(2);
@@ -48,9 +50,10 @@ export default function TokenCard({
                 <div>
                     <div className="flex items-center gap-2 mb-1">
                         <h3 className="font-bold text-white text-lg">{symbol}</h3>
-                        <span className={`text-xs ${chainColors[chain] || 'text-slate-400'}`}>
-                            {chain}
-                        </span>
+                        <div className={`flex items-center gap-1 text-xs ${chainColors[chain] || 'text-slate-400'}`}>
+                            {NetworkIcon && <NetworkIcon className="w-3.5 h-3.5" />}
+                            <span className="capitalize">{chain}</span>
+                        </div>
                     </div>
                     <p className="text-sm text-slate-400">{name}</p>
                 </div>
@@ -71,7 +74,7 @@ export default function TokenCard({
                         <Sparkles className="w-3 h-3" /> Smart Money
                     </div>
                     <div className={`text-lg font-bold ${smartMoneyAccumulation >= 80 ? 'text-emerald-400' :
-                            smartMoneyAccumulation >= 60 ? 'text-amber-400' : 'text-slate-400'
+                        smartMoneyAccumulation >= 60 ? 'text-amber-400' : 'text-slate-400'
                         }`}>
                         {smartMoneyAccumulation}%
                     </div>
