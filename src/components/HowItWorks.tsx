@@ -1,24 +1,24 @@
-import { Database, GitMerge, Sparkles } from 'lucide-react';
+import { Radio, Brain, Code } from 'lucide-react';
 
 export default function HowItWorks() {
   const steps = [
     {
-      icon: Database,
+      icon: Radio,
       number: '01',
-      title: 'Ingest on-chain data',
-      description: 'Continuously collect transaction data from multiple blockchains'
+      title: 'Real-Time Indexing',
+      description: 'Kafka-powered pipelines ingest blockchain events in real-time across Ethereum, Solana, Base, Arbitrum, and Polygon.'
     },
     {
-      icon: GitMerge,
+      icon: Brain,
       number: '02',
-      title: 'Cluster & enrich',
-      description: 'Apply graph algorithms and heuristics to identify entity patterns'
+      title: 'ML Entity Resolution',
+      description: 'Proprietary algorithms cluster wallets into entities and compute smart-money scores using historical performance data.'
     },
     {
-      icon: Sparkles,
+      icon: Code,
       number: '03',
-      title: 'Deliver insights',
-      description: 'Surface actionable intelligence through APIs and visual tools'
+      title: 'GraphQL API Delivery',
+      description: 'Query the entire intelligence layer via a unified GraphQL API. SDKs for TypeScript, Python, and Go ship production-ready.'
     }
   ];
 
@@ -29,6 +29,9 @@ export default function HowItWorks() {
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             How WalletWeaver Works
           </h2>
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+            Enterprise-grade infrastructure built for speed, scale, and reliability.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 relative">

@@ -1,23 +1,23 @@
-import { Network, TrendingUp, Code2 } from 'lucide-react';
+import { Database, Brain, Code2 } from 'lucide-react';
 
 export default function CoreValue() {
   const values = [
     {
-      icon: Network,
-      title: 'Multi-chain wallet clustering',
-      description: 'Automatically group addresses into real-world entities using graph heuristics, movement patterns, and metadata.',
+      icon: Database,
+      title: 'Real-Time Multi-Chain Indexing',
+      description: 'Kafka-powered ingestion across Ethereum, Solana, Base, Arbitrum, and Polygon. Sub-second latency from on-chain event to queryable data.',
       gradient: 'from-blue-500 to-cyan-500'
     },
     {
-      icon: TrendingUp,
-      title: 'Smart money maps',
-      description: 'Analyze entity flows across tokens, protocols, and chains to understand conviction.',
+      icon: Brain,
+      title: 'ML-Powered Entity Resolution',
+      description: 'Proprietary clustering algorithms combine graph heuristics and machine learning to reveal the entities behind wallet addresses. Smart-money scoring identifies alpha wallets.',
       gradient: 'from-purple-500 to-pink-500'
     },
     {
       icon: Code2,
-      title: 'API-first by design',
-      description: 'GraphQL + streaming APIs for seamless integration into your dashboards, quant models, and apps.',
+      title: 'Enterprise-Grade GraphQL API',
+      description: 'One unified API for wallet intelligence, token analytics, and real-time alerts. Production-ready SDKs for TypeScript, Python, and Go.',
       gradient: 'from-teal-500 to-emerald-500'
     }
   ];
@@ -27,10 +27,10 @@ export default function CoreValue() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Blockchain wallet intelligence in one place
+            On-chain intelligence, production-ready
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Understand wallet behavior, capital flows, and entity patterns across chains.
+            Enterprise infrastructure that powers hedge funds, trading desks, protocols, and compliance teams worldwide.
           </p>
         </div>
 

@@ -1,35 +1,45 @@
-import { TrendingUp, Boxes, Search } from 'lucide-react';
+import { TrendingUp, Building2, Code2, Shield } from 'lucide-react';
 
 export default function TargetUsers() {
   const users = [
     {
       icon: TrendingUp,
+      title: 'Crypto Traders',
+      points: [
+        'Discover alpha from smart money movements',
+        'Copy top-performing wallets automatically',
+        'Real-time alerts on token accumulation',
+        'Track narrative shifts before the crowd'
+      ]
+    },
+    {
+      icon: Building2,
       title: 'Funds & Prop Desks',
       points: [
-        'Track smart money movements',
-        'Identify emerging narratives',
-        'Monitor counterparty risk',
-        'Build conviction signals'
+        'Portfolio intelligence and attribution',
+        'Counterparty and entity-level exposure',
+        'Custom scoring models and signals',
+        'API integration with trading systems'
       ]
     },
     {
-      icon: Boxes,
-      title: 'Protocols & Founders',
+      icon: Code2,
+      title: 'Blockchain Developers',
       points: [
-        'Understand your user base',
-        'Track competitive flows',
-        'Identify whale behavior',
-        'Plan token distributions'
+        'Production-ready TypeScript, Python & Go SDKs',
+        'GraphQL API with persisted queries',
+        'Webhook integrations for real-time events',
+        'Self-hosted deployment options'
       ]
     },
     {
-      icon: Search,
-      title: 'Analytics & Research Teams',
+      icon: Shield,
+      title: 'Enterprises & Compliance',
       points: [
-        'Build custom datasets',
-        'Enrich research reports',
-        'Validate on-chain hypotheses',
-        'Create visualizations'
+        'Wallet risk scoring and AML checks',
+        'Entity resolution for KYC workflows',
+        'Audit-ready transaction trails',
+        'SOC 2 compliant infrastructure'
       ]
     }
   ];
@@ -39,29 +49,32 @@ export default function TargetUsers() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Built for serious on-chain teams
+            Built for every on-chain use case
           </h2>
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+            From solo traders to enterprise compliance teams — WalletWeaver scales with your needs.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {users.map((user, index) => (
             <div
               key={index}
-              className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800/50 hover:border-slate-600/50 transition-all duration-300"
+              className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-6 hover:bg-slate-800/50 hover:border-slate-600/50 transition-all duration-300"
             >
-              <div className="inline-flex p-3 bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl mb-6">
+              <div className="inline-flex p-3 bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl mb-5">
                 <user.icon className="w-6 h-6 text-blue-400" />
               </div>
 
-              <h3 className="text-xl font-semibold text-white mb-6">
+              <h3 className="text-lg font-semibold text-white mb-4">
                 {user.title}
               </h3>
 
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {user.points.map((point, pointIndex) => (
-                  <li key={pointIndex} className="flex items-start gap-3">
+                  <li key={pointIndex} className="flex items-start gap-2.5">
                     <div className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 flex-shrink-0" />
-                    <span className="text-slate-400">{point}</span>
+                    <span className="text-sm text-slate-400">{point}</span>
                   </li>
                 ))}
               </ul>
