@@ -1,0 +1,103 @@
+[
+    {
+        "id": "alert_001",
+        "name": "Whale PEPE Accumulation",
+        "type": "token_accumulation",
+        "status": "active",
+        "conditions": {
+            "token": "PEPE",
+            "minSmartMoneyScore": 80,
+            "minAmount": 1000000000,
+            "action": "buy"
+        },
+        "channels": [
+            "telegram",
+            "email"
+        ],
+        "triggeredCount": 12,
+        "lastTriggered": "2026-01-18T08:45:00Z",
+        "createdAt": "2026-01-15T10:00:00Z"
+    },
+    {
+        "id": "alert_002",
+        "name": "Smart Money ETH Sells",
+        "type": "wallet_activity",
+        "status": "active",
+        "conditions": {
+            "wallets": [
+                "0x47ac...d503",
+                "0x3ddf...296"
+            ],
+            "token": "ETH",
+            "action": "sell",
+            "minAmount": 100
+        },
+        "channels": [
+            "discord",
+            "webhook"
+        ],
+        "triggeredCount": 3,
+        "lastTriggered": "2026-01-17T14:22:00Z",
+        "createdAt": "2026-01-10T09:00:00Z"
+    },
+    {
+        "id": "alert_003",
+        "name": "New Token Smart Money Entry",
+        "type": "first_buy",
+        "status": "active",
+        "conditions": {
+            "minSmartMoneyScore": 85,
+            "chains": [
+                "ethereum",
+                "base",
+                "arbitrum"
+            ],
+            "minValueUsd": 50000
+        },
+        "channels": [
+            "telegram"
+        ],
+        "triggeredCount": 45,
+        "lastTriggered": "2026-01-18T09:12:00Z",
+        "createdAt": "2026-01-01T00:00:00Z"
+    },
+    {
+        "id": "alert_004",
+        "name": "Copy Paradigm Trades",
+        "type": "copy_trade",
+        "status": "active",
+        "conditions": {
+            "wallet": "0x3ddf...296",
+            "walletLabel": "Paradigm",
+            "actions": [
+                "swap",
+                "buy"
+            ],
+            "minValueUsd": 100000,
+            "copyPercentage": 10
+        },
+        "channels": [
+            "webhook"
+        ],
+        "triggeredCount": 8,
+        "lastTriggered": "2026-01-18T09:28:00Z",
+        "createdAt": "2026-01-12T15:30:00Z"
+    },
+    {
+        "id": "alert_005",
+        "name": "Meme Narrative Surge",
+        "type": "narrative_alert",
+        "status": "paused",
+        "conditions": {
+            "narrative": "Memecoins",
+            "heatScoreThreshold": 90,
+            "changeThreshold": 20
+        },
+        "channels": [
+            "email"
+        ],
+        "triggeredCount": 2,
+        "lastTriggered": "2026-01-16T11:00:00Z",
+        "createdAt": "2026-01-05T08:00:00Z"
+    }
+]

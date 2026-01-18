@@ -1,0 +1,382 @@
+[
+    {
+        "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+        "ensName": "binance.eth",
+        "label": "Binance Hot Wallet",
+        "entityType": "exchange",
+        "chain": "ethereum",
+        "smartMoneyScore": 95,
+        "pnl30d": 12450000,
+        "roi30d": 34.2,
+        "winRate": 78,
+        "avgHoldTime": "4.2 days",
+        "totalValue": 2340000000,
+        "topTokens": [
+            "ETH",
+            "USDT",
+            "USDC"
+        ],
+        "recentTrades": 1247
+    },
+    {
+        "address": "0x47ac0fb4f2d84898e4d9e7b4dab3c24507a6d503",
+        "ensName": null,
+        "label": "Smart Money Whale #1",
+        "entityType": "whale",
+        "chain": "ethereum",
+        "smartMoneyScore": 92,
+        "pnl30d": 8920000,
+        "roi30d": 156.8,
+        "winRate": 82,
+        "avgHoldTime": "12.5 days",
+        "totalValue": 89000000,
+        "topTokens": [
+            "PEPE",
+            "WIF",
+            "BONK"
+        ],
+        "recentTrades": 89
+    },
+    {
+        "address": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+        "ensName": "vitalik.eth",
+        "label": "Vitalik Buterin",
+        "entityType": "founder",
+        "chain": "ethereum",
+        "smartMoneyScore": 98,
+        "pnl30d": 0,
+        "roi30d": 0,
+        "winRate": 0,
+        "avgHoldTime": "N/A",
+        "totalValue": 450000000,
+        "topTokens": [
+            "ETH",
+            "MKR",
+            "ENS"
+        ],
+        "recentTrades": 12
+    },
+    {
+        "address": "0x8894e0a0c962cb723c1976a4421c95949be2d4e3",
+        "ensName": null,
+        "label": "Polychain Capital",
+        "entityType": "fund",
+        "chain": "ethereum",
+        "smartMoneyScore": 89,
+        "pnl30d": 4560000,
+        "roi30d": 28.4,
+        "winRate": 71,
+        "avgHoldTime": "45.2 days",
+        "totalValue": 234000000,
+        "topTokens": [
+            "ETH",
+            "LINK",
+            "UNI"
+        ],
+        "recentTrades": 34
+    },
+    {
+        "address": "0x3ddfa8ec3052539b6c9549f12cea2c295cff5296",
+        "ensName": "paradigm.eth",
+        "label": "Paradigm",
+        "entityType": "fund",
+        "chain": "ethereum",
+        "smartMoneyScore": 91,
+        "pnl30d": 7890000,
+        "roi30d": 42.1,
+        "winRate": 75,
+        "avgHoldTime": "60.3 days",
+        "totalValue": 567000000,
+        "topTokens": [
+            "ETH",
+            "UNI",
+            "DYDX"
+        ],
+        "recentTrades": 28
+    },
+    {
+        "address": "0x1234567890abcdef1234567890abcdef12345678",
+        "ensName": "degen.eth",
+        "label": "Degen Trader #42",
+        "entityType": "trader",
+        "chain": "base",
+        "smartMoneyScore": 87,
+        "pnl30d": 2340000,
+        "roi30d": 234.5,
+        "winRate": 68,
+        "avgHoldTime": "2.1 days",
+        "totalValue": 4500000,
+        "topTokens": [
+            "DEGEN",
+            "HIGHER",
+            "TOSHI"
+        ],
+        "recentTrades": 456
+    },
+    {
+        "address": "0xabcdef1234567890abcdef1234567890abcdef12",
+        "ensName": null,
+        "label": "MEV Bot Alpha",
+        "entityType": "bot",
+        "chain": "ethereum",
+        "smartMoneyScore": 94,
+        "pnl30d": 1890000,
+        "roi30d": 89.2,
+        "winRate": 91,
+        "avgHoldTime": "0.1 days",
+        "totalValue": 12000000,
+        "topTokens": [
+            "ETH",
+            "USDC",
+            "WETH"
+        ],
+        "recentTrades": 12456
+    },
+    {
+        "address": "0x9876543210fedcba9876543210fedcba98765432",
+        "ensName": "wintermute.eth",
+        "label": "Wintermute Trading",
+        "entityType": "market_maker",
+        "chain": "ethereum",
+        "smartMoneyScore": 88,
+        "pnl30d": 5670000,
+        "roi30d": 18.9,
+        "winRate": 85,
+        "avgHoldTime": "0.5 days",
+        "totalValue": 890000000,
+        "topTokens": [
+            "ETH",
+            "USDT",
+            "ARB"
+        ],
+        "recentTrades": 8934
+    },
+    {
+        "address": "0xfedcba9876543210fedcba9876543210fedcba98",
+        "ensName": null,
+        "label": "Solana Whale #7",
+        "entityType": "whale",
+        "chain": "solana",
+        "smartMoneyScore": 86,
+        "pnl30d": 3450000,
+        "roi30d": 178.4,
+        "winRate": 72,
+        "avgHoldTime": "5.6 days",
+        "totalValue": 45000000,
+        "topTokens": [
+            "SOL",
+            "JUP",
+            "BONK"
+        ],
+        "recentTrades": 234
+    },
+    {
+        "address": "0x1111222233334444555566667777888899990000",
+        "ensName": "a16z.eth",
+        "label": "a16z Crypto",
+        "entityType": "fund",
+        "chain": "ethereum",
+        "smartMoneyScore": 93,
+        "pnl30d": 12300000,
+        "roi30d": 31.2,
+        "winRate": 79,
+        "avgHoldTime": "120.5 days",
+        "totalValue": 1200000000,
+        "topTokens": [
+            "ETH",
+            "UNI",
+            "OP"
+        ],
+        "recentTrades": 18
+    },
+    {
+        "address": "0xaaaa1111bbbb2222cccc3333dddd4444eeee5555",
+        "ensName": null,
+        "label": "ARB Accumulator",
+        "entityType": "trader",
+        "chain": "arbitrum",
+        "smartMoneyScore": 84,
+        "pnl30d": 890000,
+        "roi30d": 67.8,
+        "winRate": 65,
+        "avgHoldTime": "8.9 days",
+        "totalValue": 8900000,
+        "topTokens": [
+            "ARB",
+            "GMX",
+            "MAGIC"
+        ],
+        "recentTrades": 123
+    },
+    {
+        "address": "0xbbbb2222cccc3333dddd4444eeee5555ffff6666",
+        "ensName": "galaxy.eth",
+        "label": "Galaxy Digital",
+        "entityType": "fund",
+        "chain": "ethereum",
+        "smartMoneyScore": 87,
+        "pnl30d": 6780000,
+        "roi30d": 25.6,
+        "winRate": 73,
+        "avgHoldTime": "35.2 days",
+        "totalValue": 456000000,
+        "topTokens": [
+            "ETH",
+            "BTC",
+            "SOL"
+        ],
+        "recentTrades": 45
+    },
+    {
+        "address": "0xcccc3333dddd4444eeee5555ffff6666aaaa7777",
+        "ensName": null,
+        "label": "NFT Flipper Pro",
+        "entityType": "trader",
+        "chain": "ethereum",
+        "smartMoneyScore": 81,
+        "pnl30d": 450000,
+        "roi30d": 89.3,
+        "winRate": 58,
+        "avgHoldTime": "3.2 days",
+        "totalValue": 2300000,
+        "topTokens": [
+            "BLUR",
+            "LOOKS",
+            "X2Y2"
+        ],
+        "recentTrades": 567
+    },
+    {
+        "address": "0xdddd4444eeee5555ffff6666aaaa7777bbbb8888",
+        "ensName": "coinbase.eth",
+        "label": "Coinbase Institutional",
+        "entityType": "exchange",
+        "chain": "ethereum",
+        "smartMoneyScore": 90,
+        "pnl30d": 8900000,
+        "roi30d": 15.4,
+        "winRate": 82,
+        "avgHoldTime": "N/A",
+        "totalValue": 3400000000,
+        "topTokens": [
+            "ETH",
+            "USDC",
+            "BTC"
+        ],
+        "recentTrades": 2345
+    },
+    {
+        "address": "0xeeee5555ffff6666aaaa7777bbbb8888cccc9999",
+        "ensName": null,
+        "label": "DeFi Yield Hunter",
+        "entityType": "trader",
+        "chain": "ethereum",
+        "smartMoneyScore": 83,
+        "pnl30d": 670000,
+        "roi30d": 45.6,
+        "winRate": 69,
+        "avgHoldTime": "14.5 days",
+        "totalValue": 5600000,
+        "topTokens": [
+            "CRV",
+            "CVX",
+            "LDO"
+        ],
+        "recentTrades": 89
+    },
+    {
+        "address": "0xffff6666aaaa7777bbbb8888cccc9999dddd0000",
+        "ensName": "jump.eth",
+        "label": "Jump Trading",
+        "entityType": "market_maker",
+        "chain": "ethereum",
+        "smartMoneyScore": 92,
+        "pnl30d": 4560000,
+        "roi30d": 22.3,
+        "winRate": 88,
+        "avgHoldTime": "0.3 days",
+        "totalValue": 780000000,
+        "topTokens": [
+            "ETH",
+            "WBTC",
+            "USDT"
+        ],
+        "recentTrades": 6789
+    },
+    {
+        "address": "0x0000aaaa1111bbbb2222cccc3333dddd4444eeee",
+        "ensName": null,
+        "label": "Base Early Adopter",
+        "entityType": "trader",
+        "chain": "base",
+        "smartMoneyScore": 85,
+        "pnl30d": 1230000,
+        "roi30d": 312.4,
+        "winRate": 71,
+        "avgHoldTime": "6.7 days",
+        "totalValue": 3400000,
+        "topTokens": [
+            "DEGEN",
+            "BRETT",
+            "TOSHI"
+        ],
+        "recentTrades": 234
+    },
+    {
+        "address": "0x1111bbbb2222cccc3333dddd4444eeee5555ffff",
+        "ensName": "three_arrows.eth",
+        "label": "3AC Remnants",
+        "entityType": "fund",
+        "chain": "ethereum",
+        "smartMoneyScore": 76,
+        "pnl30d": -2340000,
+        "roi30d": -12.3,
+        "winRate": 45,
+        "avgHoldTime": "89.2 days",
+        "totalValue": 12000000,
+        "topTokens": [
+            "ETH",
+            "stETH",
+            "LUNA"
+        ],
+        "recentTrades": 5
+    },
+    {
+        "address": "0x2222cccc3333dddd4444eeee5555ffff6666aaaa",
+        "ensName": null,
+        "label": "Polygon Power User",
+        "entityType": "trader",
+        "chain": "polygon",
+        "smartMoneyScore": 82,
+        "pnl30d": 340000,
+        "roi30d": 56.7,
+        "winRate": 64,
+        "avgHoldTime": "4.3 days",
+        "totalValue": 1200000,
+        "topTokens": [
+            "MATIC",
+            "QUICK",
+            "AAVEGOTCHI"
+        ],
+        "recentTrades": 456
+    },
+    {
+        "address": "0x3333dddd4444eeee5555ffff6666aaaa7777bbbb",
+        "ensName": "dragonfly.eth",
+        "label": "Dragonfly Capital",
+        "entityType": "fund",
+        "chain": "ethereum",
+        "smartMoneyScore": 89,
+        "pnl30d": 5670000,
+        "roi30d": 38.9,
+        "winRate": 76,
+        "avgHoldTime": "55.6 days",
+        "totalValue": 345000000,
+        "topTokens": [
+            "ETH",
+            "NEAR",
+            "AVAX"
+        ],
+        "recentTrades": 23
+    }
+]

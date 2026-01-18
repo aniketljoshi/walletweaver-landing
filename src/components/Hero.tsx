@@ -1,4 +1,5 @@
-import { Network, ArrowRight, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Network, ArrowRight, Zap, Play } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -54,9 +55,16 @@ export default function Hero() {
               <ArrowRight className="inline-block ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
 
-            <button className="px-8 py-4 bg-slate-800/50 hover:bg-slate-800/70 border border-slate-700/50 rounded-lg font-semibold text-white backdrop-blur-sm transition-all hover:border-slate-600">
-              Request a Demo
-            </button>
+            <Link
+              to="/demo"
+              className="group px-8 py-4 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 rounded-lg font-semibold text-emerald-400 backdrop-blur-sm transition-all hover:border-emerald-500/50"
+            >
+              <Play className="inline-block mr-2 w-4 h-4" />
+              Try Live Demo
+              <span className="block text-xs font-normal text-emerald-400/70 mt-0.5">
+                Explore in 2 minutes
+              </span>
+            </Link>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6 pt-6 text-sm text-slate-500">

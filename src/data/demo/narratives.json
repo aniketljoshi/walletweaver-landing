@@ -1,0 +1,130 @@
+[
+    {
+        "id": "narrative_meme",
+        "name": "Memecoins",
+        "description": "Viral meme tokens with community-driven momentum",
+        "heatScore": 94,
+        "change24h": 28.5,
+        "tokens": [
+            "PEPE",
+            "WIF",
+            "BONK",
+            "DEGEN",
+            "BRETT"
+        ],
+        "smartMoneyInterest": "very_high",
+        "color": "#22c55e"
+    },
+    {
+        "id": "narrative_l2",
+        "name": "Layer 2 Scaling",
+        "description": "Ethereum L2 solutions and scaling technologies",
+        "heatScore": 78,
+        "change24h": 5.2,
+        "tokens": [
+            "ARB",
+            "OP",
+            "MATIC",
+            "STRK",
+            "ZK"
+        ],
+        "smartMoneyInterest": "high",
+        "color": "#3b82f6"
+    },
+    {
+        "id": "narrative_ai",
+        "name": "AI & Compute",
+        "description": "Decentralized AI and compute networks",
+        "heatScore": 85,
+        "change24h": 12.8,
+        "tokens": [
+            "RENDER",
+            "FET",
+            "OCEAN",
+            "TAO",
+            "RNDR"
+        ],
+        "smartMoneyInterest": "high",
+        "color": "#a855f7"
+    },
+    {
+        "id": "narrative_defi",
+        "name": "DeFi Blue Chips",
+        "description": "Established decentralized finance protocols",
+        "heatScore": 62,
+        "change24h": 2.1,
+        "tokens": [
+            "UNI",
+            "AAVE",
+            "CRV",
+            "MKR",
+            "LDO"
+        ],
+        "smartMoneyInterest": "medium",
+        "color": "#f59e0b"
+    },
+    {
+        "id": "narrative_rwa",
+        "name": "Real World Assets",
+        "description": "Tokenization of real-world assets",
+        "heatScore": 71,
+        "change24h": 8.4,
+        "tokens": [
+            "ONDO",
+            "TRU",
+            "MPL",
+            "CFG",
+            "RIO"
+        ],
+        "smartMoneyInterest": "high",
+        "color": "#06b6d4"
+    },
+    {
+        "id": "narrative_gaming",
+        "name": "Gaming & Metaverse",
+        "description": "Blockchain gaming and virtual worlds",
+        "heatScore": 45,
+        "change24h": -3.2,
+        "tokens": [
+            "IMX",
+            "GALA",
+            "AXS",
+            "SAND",
+            "MAGIC"
+        ],
+        "smartMoneyInterest": "low",
+        "color": "#ec4899"
+    },
+    {
+        "id": "narrative_sol",
+        "name": "Solana Ecosystem",
+        "description": "Projects building on Solana",
+        "heatScore": 88,
+        "change24h": 15.6,
+        "tokens": [
+            "SOL",
+            "JUP",
+            "PYTH",
+            "RAY",
+            "ORCA"
+        ],
+        "smartMoneyInterest": "very_high",
+        "color": "#9945FF"
+    },
+    {
+        "id": "narrative_infra",
+        "name": "Infrastructure",
+        "description": "Core blockchain infrastructure and oracles",
+        "heatScore": 58,
+        "change24h": 1.8,
+        "tokens": [
+            "LINK",
+            "GRT",
+            "FIL",
+            "AR",
+            "ATOM"
+        ],
+        "smartMoneyInterest": "medium",
+        "color": "#6366f1"
+    }
+]
