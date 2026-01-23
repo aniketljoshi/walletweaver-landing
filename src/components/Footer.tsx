@@ -1,4 +1,4 @@
-import { Network, Mail, Twitter, Github } from 'lucide-react';
+import { Network, Mail, Twitter, Github, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -17,8 +17,11 @@ export default function Footer() {
               The Bloomberg Terminal for On-Chain Intelligence
             </p>
             <div className="flex items-center gap-4">
-              <a href="https://twitter.com/walletweaver" className="text-slate-400 hover:text-white transition-colors">
+              <a href="https://twitter.com/WalletWeaverHQ" className="text-slate-400 hover:text-white transition-colors">
                 <Twitter className="w-5 h-5" />
+              </a>
+              <a href="https://linkedin.com/company/walletweaver" className="text-slate-400 hover:text-white transition-colors">
+                <Linkedin className="w-5 h-5" />
               </a>
               <a href="https://github.com/walletweaver" className="text-slate-400 hover:text-white transition-colors">
                 <Github className="w-5 h-5" />
