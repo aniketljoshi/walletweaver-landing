@@ -1,119 +1,185 @@
+import { motion } from 'framer-motion';
 import { Check, ArrowRight, Sparkles } from 'lucide-react';
+import AnimatedSection, { StaggerContainer, StaggerItem } from './AnimatedSection';
+
+const plans = [
+  {
+    name: 'Free',
+    price: '$0',
+    period: '/month',
+    description: 'Perfect for exploring and prototyping.',
+    features: [
+      '1,000 API calls/month',
+      '5 chains supported',
+      'Basic wallet explorer',
+      'Community support',
+      'TypeScript SDK',
+    ],
+    cta: 'Available at launch',
+    highlighted: false,
+    color: 'slate',
+  },
+  {
+    name: 'Pro',
+    price: '$199',
+    period: '/month',
+    description: 'For traders and teams who need the edge.',
+    features: [
+      '100,000 API calls/month',
+      'All 5 chains + priority',
+      'Smart money leaderboards',
+      'Real-time alerts (Telegram, Discord)',
+      'Copy-trading webhooks',
+      'Priority email support',
+      'All SDKs (TS, Python, Go)',
+    ],
+    cta: 'Available at launch',
+    highlighted: true,
+    color: 'neon-cyan',
+    badge: 'Most Popular',
+  },
+  {
+    name: 'Enterprise',
+    price: 'Custom',
+    period: '',
+    description: 'For funds, compliance, and high-volume apps.',
+    features: [
+      'Unlimited API calls',
+      'Custom SLA & uptime guarantee',
+      'Dedicated account manager',
+      'Self-hosted deployment option',
+      'Custom entity models',
+      'Data warehouse export',
+      'SOC 2 attestation & audit logs',
+    ],
+    cta: 'Contact for early access',
+    highlighted: false,
+    color: 'neon-violet',
+  },
+];
 
 export default function Pricing() {
   return (
-    <section className="py-24 sm:py-32">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="inline-block px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm font-semibold rounded-full mb-4">
+    <section className="relative py-24 sm:py-32 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 dot-pattern opacity-20" />
+
+      <div className="relative max-w-7xl mx-auto px-6">
+        <AnimatedSection className="text-center mb-16">
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-sm font-medium text-neon-amber mb-6"
+          >
+            <Sparkles className="w-4 h-4" />
             Coming Soon
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Transparent pricing that scales
+          </motion.span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            Transparent pricing{' '}
+            <span className="gradient-text">that scales</span>
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
             Join the waitlist to get early access and exclusive launch pricing.
           </p>
-        </div>
+        </AnimatedSection>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {/* Free Tier */}
-          <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-8 opacity-80">
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold text-white mb-2">Free</h3>
-              <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-bold text-white">$0</span>
-                <span className="text-slate-400">/month</span>
-              </div>
-              <p className="text-sm text-slate-400 mt-2">Perfect for exploring and prototyping.</p>
-            </div>
+        <StaggerContainer className="grid md:grid-cols-3 gap-8 mb-12 items-start" staggerDelay={0.15}>
+          {plans.map((plan, index) => (
+            <StaggerItem key={index}>
+              <motion.div
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className={`relative h-full ${plan.highlighted ? 'md:-mt-4' : ''}`}
+              >
+                {/* Popular badge */}
+                {plan.badge && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                    <div className="px-4 py-1 bg-gradient-to-r from-neon-cyan to-neon-violet rounded-full text-sm font-semibold text-white shadow-lg">
+                      {plan.badge}
+                    </div>
+                  </div>
+                )}
 
-            <ul className="space-y-3 mb-8">
-              {['1,000 API calls/month', '5 chains supported', 'Basic wallet explorer', 'Community support', 'TypeScript SDK'].map((feature, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-slate-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-400 text-sm">{feature}</span>
-                </li>
-              ))}
-            </ul>
+                <div
+                  className={`relative h-full glass-card p-8 transition-all duration-500 ${
+                    plan.highlighted
+                      ? 'border-neon-cyan/30 shadow-neon-cyan/10'
+                      : 'hover:border-neon-cyan/20'
+                  }`}
+                >
+                  {/* Glow for highlighted plan */}
+                  {plan.highlighted && (
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-neon-cyan/5 to-neon-violet/5 opacity-50" />
+                  )}
 
-            <div className="py-3 px-6 rounded-lg bg-slate-700/30 text-center text-slate-400 text-sm">
-              Available at launch
-            </div>
-          </div>
+                  {/* Plan header */}
+                  <div className="relative mb-6">
+                    <h3 className="text-xl font-semibold text-white mb-2">{plan.name}</h3>
+                    <div className="flex items-baseline gap-1">
+                      <span className={`text-4xl font-bold ${plan.highlighted ? 'gradient-text' : 'text-white'}`}>
+                        {plan.price}
+                      </span>
+                      <span className="text-slate-400">{plan.period}</span>
+                    </div>
+                    <p className="text-sm text-slate-400 mt-2">{plan.description}</p>
+                  </div>
 
-          {/* Pro Tier - Highlighted */}
-          <div className="relative bg-gradient-to-br from-blue-500/10 to-purple-500/10 border-2 border-blue-500/50 rounded-2xl p-8 scale-105">
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-sm font-semibold rounded-full">
-              Most Popular
-            </div>
+                  {/* Features */}
+                  <ul className="relative space-y-3 mb-8">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <Check
+                          className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                            plan.highlighted ? 'text-neon-emerald' : 'text-slate-500'
+                          }`}
+                        />
+                        <span className={`text-sm ${plan.highlighted ? 'text-slate-300' : 'text-slate-400'}`}>
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
 
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold text-white mb-2">Pro</h3>
-              <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-bold text-white">$199</span>
-                <span className="text-slate-400">/month</span>
-              </div>
-              <p className="text-sm text-slate-400 mt-2">For traders and teams who need the edge.</p>
-            </div>
-
-            <ul className="space-y-3 mb-8">
-              {['100,000 API calls/month', 'All 5 chains + priority', 'Smart money leaderboards', 'Real-time alerts (Telegram, Discord)', 'Copy-trading webhooks', 'Priority email support', 'All SDKs (TS, Python, Go)'].map((feature, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-300 text-sm">{feature}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="py-3 px-6 rounded-lg bg-slate-700/30 text-center text-slate-400 text-sm">
-              Available at launch
-            </div>
-          </div>
-
-          {/* Enterprise Tier */}
-          <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-8 opacity-80">
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold text-white mb-2">Enterprise</h3>
-              <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-bold text-white">Custom</span>
-              </div>
-              <p className="text-sm text-slate-400 mt-2">For funds, compliance, and high-volume apps.</p>
-            </div>
-
-            <ul className="space-y-3 mb-8">
-              {['Unlimited API calls', 'Custom SLA & uptime guarantee', 'Dedicated account manager', 'Self-hosted deployment option', 'Custom entity models', 'Data warehouse export', 'SOC 2 attestation & audit logs'].map((feature, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-slate-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-400 text-sm">{feature}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="py-3 px-6 rounded-lg bg-slate-700/30 text-center text-slate-400 text-sm">
-              Contact for early access
-            </div>
-          </div>
-        </div>
+                  {/* CTA */}
+                  <div className="relative">
+                    {plan.highlighted ? (
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-neon-cyan/20 to-neon-violet/20 border border-neon-cyan/30 text-white font-medium transition-all hover:shadow-neon-cyan/20 btn-glow"
+                      >
+                        {plan.cta}
+                      </motion.button>
+                    ) : (
+                      <div className="w-full py-3 px-6 rounded-xl glass-card text-center text-slate-400 text-sm">
+                        {plan.cta}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
 
         {/* Waitlist CTA */}
-        <div className="text-center">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 bg-slate-800/50 border border-slate-700/50 rounded-2xl">
-            <Sparkles className="w-8 h-8 text-blue-400" />
+        <AnimatedSection delay={0.4} className="text-center">
+          <div className="glass-card-strong inline-flex flex-col sm:flex-row items-center gap-4 px-8 py-6">
             <div className="text-left">
-              <p className="text-white font-semibold">Get early access & launch pricing</p>
-              <p className="text-sm text-slate-400">Waitlist members get 20% off for the first year</p>
+              <h3 className="text-lg font-semibold text-white mb-1">Ready to get started?</h3>
+              <p className="text-slate-400 text-sm">Join 2,000+ traders and developers on the waitlist.</p>
             </div>
-            <button className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-lg font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:shadow-xl hover:shadow-blue-500/40 flex items-center gap-2">
-              Join the Waitlist
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="px-6 py-3 bg-gradient-to-r from-neon-cyan/20 to-neon-violet/20 border border-neon-cyan/30 rounded-xl font-medium text-white flex items-center gap-2 btn-glow whitespace-nowrap"
+            >
+              Join Waitlist
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </motion.button>
           </div>
-        </div>
-
-        <p className="text-center text-sm text-slate-500 mt-8">
-          All plans include: SOC 2 compliant infrastructure • 99.9% uptime • GDPR ready
-        </p>
+        </AnimatedSection>
       </div>
     </section>
   );
