@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { label: 'Features', href: '#features' },
@@ -39,21 +39,18 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'bg-void/80 backdrop-blur-xl border-b border-glass-border'
-            : 'bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+          ? 'bg-void/80 backdrop-blur-xl border-b border-glass-border'
+          : 'bg-transparent'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6">
           <nav className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="relative">
-                <div className="p-2 glass-card border-neon-cyan/30 group-hover:border-neon-cyan/50 transition-colors">
-                  <Sparkles className="w-5 h-5 text-neon-cyan" />
-                </div>
-                <div className="absolute inset-0 bg-neon-cyan/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity rounded-lg" />
+              <div className="relative flex items-center justify-center w-10 h-10">
+                <img src="/favicon.svg" alt="WalletWeaver Logo" className="w-8 h-8 object-contain" />
+                <div className="absolute inset-0 bg-neon-cyan/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
               </div>
               <span className="text-lg font-semibold text-white group-hover:text-neon-cyan transition-colors">
                 Wallet<span className="gradient-text">Weaver</span>

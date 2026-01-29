@@ -60,7 +60,7 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
+    <section id="pricing" className="relative py-24 sm:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 dot-pattern opacity-20" />
 
@@ -102,11 +102,10 @@ export default function Pricing() {
                 )}
 
                 <div
-                  className={`relative h-full glass-card p-8 transition-all duration-500 ${
-                    plan.highlighted
+                  className={`relative h-full glass-card p-8 transition-all duration-500 ${plan.highlighted
                       ? 'border-neon-cyan/30 shadow-neon-cyan/10'
                       : 'hover:border-neon-cyan/20'
-                  }`}
+                    }`}
                 >
                   {/* Glow for highlighted plan */}
                   {plan.highlighted && (
@@ -130,9 +129,8 @@ export default function Pricing() {
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <Check
-                          className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
-                            plan.highlighted ? 'text-neon-emerald' : 'text-slate-500'
-                          }`}
+                          className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.highlighted ? 'text-neon-emerald' : 'text-slate-500'
+                            }`}
                         />
                         <span className={`text-sm ${plan.highlighted ? 'text-slate-300' : 'text-slate-400'}`}>
                           {feature}

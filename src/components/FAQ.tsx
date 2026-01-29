@@ -83,7 +83,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
+    <section id="faq" className="relative py-24 sm:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-void via-void-50 to-void" />
       <div className="absolute inset-0 grid-overlay opacity-10" />

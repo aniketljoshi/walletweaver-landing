@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Mail, Twitter, Github, Linkedin, Sparkles } from 'lucide-react';
+import { Mail, Twitter, Github, Linkedin } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 
 const footerLinks = {
@@ -44,11 +44,9 @@ export default function Footer() {
             {/* Brand */}
             <div className="md:col-span-1">
               <Link to="/" className="flex items-center gap-3 mb-4 group">
-                <div className="relative">
-                  <div className="p-2 glass-card rounded-lg border-neon-cyan/30 group-hover:border-neon-cyan/50 transition-colors">
-                    <Sparkles className="w-5 h-5 text-neon-cyan" />
-                  </div>
-                  <div className="absolute inset-0 bg-neon-cyan/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity rounded-lg" />
+                <div className="relative flex items-center justify-center w-10 h-10">
+                  <img src="/favicon.svg" alt="WalletWeaver Logo" className="w-8 h-8 object-contain" />
+                  <div className="absolute inset-0 bg-neon-cyan/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
                 </div>
                 <span className="text-lg font-semibold text-white group-hover:text-neon-cyan transition-colors">
                   Wallet<span className="gradient-text">Weaver</span>

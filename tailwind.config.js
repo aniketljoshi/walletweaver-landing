@@ -122,13 +122,24 @@ export default {
         'glow-xl': '0 0 100px rgba(139, 92, 246, 0.2)',
         'inner-glow': 'inset 0 0 20px rgba(0, 240, 255, 0.1)',
       },
+      transitionTimingFunction: {
+        'cinematic': 'cubic-bezier(0.19, 1, 0.22, 1)',
+        'holographic': 'cubic-bezier(0.4, 0, 0.2, 1)',
+        'elastic': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+      },
       backdropBlur: {
         xs: '2px',
+        sm: '4px',
+        md: '8px',
+        lg: '16px',
+        xl: '24px',
+        '2xl': '40px',
+        '3xl': '64px',
       },
     },
   },
   plugins: [
-    function({ addUtilities, addComponents }) {
+    function ({ addUtilities, addComponents }) {
       addUtilities({
         '.text-glow': {
           textShadow: '0 0 20px currentColor, 0 0 40px currentColor',
