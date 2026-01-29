@@ -8,21 +8,58 @@
    CSS Custom Properties - Design Tokens
    ========================================================================== */
 :root {
-  /* Core colors */
+  /* Hybrid Dark-Light Palette */
+  --void-deep: #000000;
+  /* True black for deep space */
   --void-0: #02040a;
+  /* Primary deep void */
   --void-50: #0a0f1a;
   --void-100: #0d1320;
+  --void-elevated: #0d1016;
+  /* Elevated surfaces */
   --void-200: #111827;
   --void-300: #1a2332;
   --void-400: #243447;
 
-  /* Neon accents */
+  /* Luminous light zones */
+  --light-warm: #fdfdf9;
+  /* Warm white for light sections */
+  --light-neutral: #f8f9fa;
+  /* Cool light surface */
+  --light-accent: #e8eaed;
+  /* Light borders */
+  --light-text: #0a0f16;
+  /* Dark text for light sections */
+
+  /* Evolved neon accents - more sophisticated */
+  --electric-cyan: #00e5ff;
+  /* Brighter, more electric */
   --neon-cyan: #00f0ff;
+  /* Legacy support */
+  --quantum-purple: #a78bfa;
+  /* Softer, more ethereal */
   --neon-violet: #8b5cf6;
-  --neon-magenta: #ff00ff;
+  /* Legacy support */
+  --plasma-emerald: #34d399;
+  /* Vibrant green */
   --neon-emerald: #10b981;
+  /* Legacy support */
+  --solar-amber: #fbbf24;
+  /* Warm energy */
   --neon-amber: #f59e0b;
+  /* Legacy support */
+  --neon-magenta: #ff00ff;
   --neon-rose: #f43f5e;
+
+  /* Depth-based opacity */
+  --depth-0: 1.0;
+  /* Foreground */
+  --depth-1: 0.8;
+  /* Mid layer */
+  --depth-2: 0.6;
+  /* Far layer */
+  --depth-3: 0.3;
+  /* Deep background */
 
   /* Glass morphism */
   --glass-10: rgba(255, 255, 255, 0.02);
@@ -33,11 +70,17 @@
   --glass-200: rgba(255, 255, 255, 0.15);
   --glass-border: rgba(255, 255, 255, 0.08);
 
-  /* Animation timing */
+  /* Glass for light sections */
+  --glass-light-border: rgba(0, 0, 0, 0.08);
+  --glass-light-bg: rgba(0, 0, 0, 0.02);
+
+  /* Animation timing - GSAP-inspired */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-expo: cubic-bezier(0.7, 0, 0.84, 0);
   --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-cinematic: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* Spacing scale */
   --space-xs: 0.25rem;
@@ -48,10 +91,20 @@
   --space-2xl: 3rem;
   --space-3xl: 4rem;
   --space-4xl: 6rem;
+  --space-5xl: 8rem;
 
   /* Typography */
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  --font-display: 'Inter', system-ui, sans-serif;
+
+  /* Z-index layers */
+  --layer-0: 0;
+  --layer-1: 10;
+  --layer-2: 20;
+  --layer-3: 30;
+  --layer-4: 40;
+  --layer-5: 50;
 }
 
 /* ==========================================================================
@@ -104,6 +157,7 @@
    Component Classes
    ========================================================================== */
 @layer components {
+
   /* Glass morphism cards */
   .glass-card {
     @apply relative overflow-hidden;
@@ -249,13 +303,11 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0, 240, 255, 0.02) 2px,
-      rgba(0, 240, 255, 0.02) 4px
-    );
+    background: repeating-linear-gradient(0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 240, 255, 0.02) 2px,
+        rgba(0, 240, 255, 0.02) 4px);
     pointer-events: none;
     animation: scanMove 8s linear infinite;
   }
@@ -285,6 +337,7 @@
    Utility Classes
    ========================================================================== */
 @layer utilities {
+
   /* Perspective utilities */
   .perspective-1000 {
     perspective: 1000px;
@@ -303,54 +356,272 @@
   }
 
   /* Animation delays */
-  .delay-100 { animation-delay: 100ms; }
-  .delay-200 { animation-delay: 200ms; }
-  .delay-300 { animation-delay: 300ms; }
-  .delay-400 { animation-delay: 400ms; }
-  .delay-500 { animation-delay: 500ms; }
-  .delay-600 { animation-delay: 600ms; }
-  .delay-700 { animation-delay: 700ms; }
-  .delay-800 { animation-delay: 800ms; }
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .delay-800 {
+    animation-delay: 800ms;
+  }
+
+  /* Layer system for depth management */
+  .layer-0 {
+    z-index: var(--layer-0);
+  }
+
+  .layer-1 {
+    z-index: var(--layer-1);
+  }
+
+  .layer-2 {
+    z-index: var(--layer-2);
+  }
+
+  .layer-3 {
+    z-index: var(--layer-3);
+  }
+
+  .layer-4 {
+    z-index: var(--layer-4);
+  }
+
+  .layer-5 {
+    z-index: var(--layer-5);
+  }
+
+  /* Depth blur utilities for spatial hierarchy */
+  .depth-blur-sm {
+    filter: blur(2px);
+    opacity: var(--depth-1);
+  }
+
+  .depth-blur-md {
+    filter: blur(4px);
+    opacity: var(--depth-2);
+  }
+
+  .depth-blur-lg {
+    filter: blur(8px);
+    opacity: var(--depth-3);
+  }
+
+  /* 3D Transform utilities */
+  .translate-z-10 {
+    transform: translateZ(10px);
+  }
+
+  .translate-z-20 {
+    transform: translateZ(20px);
+  }
+
+  .translate-z-30 {
+    transform: translateZ(30px);
+  }
+
+  .translate-z-50 {
+    transform: translateZ(50px);
+  }
+
+  .-translate-z-10 {
+    transform: translateZ(-10px);
+  }
+
+  .-translate-z-20 {
+    transform: translateZ(-20px);
+  }
+
+  .-translate-z-30 {
+    transform: translateZ(-30px);
+  }
+
+  /* Additional perspective utilities */
+  .perspective-500 {
+    perspective: 500px;
+  }
+
+  .perspective-3000 {
+    perspective: 3000px;
+  }
+
+  .perspective-4000 {
+    perspective: 4000px;
+  }
+
+  /* Light section utilities for hybrid theme */
+  .bg-light-warm {
+    background-color: var(--light-warm);
+  }
+
+  .bg-light-neutral {
+    background-color: var(--light-neutral);
+  }
+
+  .text-light-text {
+    color: var(--light-text);
+  }
+
+  .border-light-accent {
+    border-color: var(--light-accent);
+  }
+
+  /* Magnetic hover effect utilities */
+  .magnetic {
+    transition: transform 0.3s var(--ease-spring);
+    will-change: transform;
+  }
+
+  /* Advanced shadow system for depth perception */
+  .shadow-depth-sm {
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.1),
+      0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow-depth-md {
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.15),
+      0 8px 16px rgba(0, 0, 0, 0.1),
+      0 16px 32px rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow-depth-lg {
+    box-shadow:
+      0 8px 16px rgba(0, 0, 0, 0.2),
+      0 16px 32px rgba(0, 0, 0, 0.15),
+      0 32px 64px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Mesh gradient backgrounds for depth */
+  .mesh-gradient-dark {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 229, 255, 0.15), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 50%, rgba(167, 139, 250, 0.1), transparent),
+      radial-gradient(ellipse 50% 30% at 20% 80%, rgba(52, 211, 153, 0.08), transparent),
+      var(--void-0);
+  }
+
+  .mesh-gradient-light {
+    background:
+      radial-gradient(ellipse 60% 50% at 30% 20%, rgba(0, 229, 255, 0.08), transparent),
+      radial-gradient(ellipse 50% 40% at 70% 70%, rgba(167, 139, 250, 0.06), transparent),
+      var(--light-warm);
+  }
 
   /* Custom animations */
   @keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
   }
 
   @keyframes scanMove {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
+    0% {
+      transform: translateY(-100%);
+    }
+
+    100% {
+      transform: translateY(100%);
+    }
   }
 
   @keyframes neuralPulse {
-    0%, 100% { opacity: 0.2; stroke-width: 1; }
-    50% { opacity: 0.5; stroke-width: 2; }
+
+    0%,
+    100% {
+      opacity: 0.2;
+      stroke-width: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+      stroke-width: 2;
+    }
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(2deg); }
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-20px) rotate(2deg);
+    }
   }
 
   @keyframes glowPulse {
-    0%, 100% { opacity: 0.4; filter: blur(40px); }
-    50% { opacity: 0.8; filter: blur(60px); }
+
+    0%,
+    100% {
+      opacity: 0.4;
+      filter: blur(40px);
+    }
+
+    50% {
+      opacity: 0.8;
+      filter: blur(60px);
+    }
   }
 
   @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+    0% {
+      background-position: -200% 0;
+    }
+
+    100% {
+      background-position: 200% 0;
+    }
   }
 
   @keyframes borderGlow {
-    0%, 100% { border-color: rgba(0, 240, 255, 0.3); }
-    50% { border-color: rgba(139, 92, 246, 0.5); }
+
+    0%,
+    100% {
+      border-color: rgba(0, 240, 255, 0.3);
+    }
+
+    50% {
+      border-color: rgba(139, 92, 246, 0.5);
+    }
   }
 
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+
+    *,
+    *::before,
+    *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;

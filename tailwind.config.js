@@ -7,13 +7,35 @@ export default {
         // Deep space foundation
         void: {
           DEFAULT: '#02040a',
+          deep: '#000000',
+          elevated: '#0d1016',
           50: '#0a0f1a',
           100: '#0d1320',
           200: '#111827',
           300: '#1a2332',
           400: '#243447',
         },
-        // Electric neon accents
+        // Luminous light zones
+        light: {
+          warm: '#fdfdf9',
+          neutral: '#f8f9fa',
+          accent: '#e8eaed',
+          text: '#0a0f16',
+        },
+        // Electric neon accents - evolved
+        electric: {
+          cyan: '#00e5ff',
+        },
+        quantum: {
+          purple: '#a78bfa',
+        },
+        plasma: {
+          emerald: '#34d399',
+        },
+        solar: {
+          amber: '#fbbf24',
+        },
+        // Legacy neon (preserved for compatibility)
         neon: {
           cyan: '#00f0ff',
           violet: '#8b5cf6',
@@ -126,6 +148,7 @@ export default {
         'cinematic': 'cubic-bezier(0.19, 1, 0.22, 1)',
         'holographic': 'cubic-bezier(0.4, 0, 0.2, 1)',
         'elastic': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+        'spring': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
       },
       backdropBlur: {
         xs: '2px',

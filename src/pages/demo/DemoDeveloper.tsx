@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Code2, Play, Copy, Check } from 'lucide-react';
+import { Code2, Play, Copy, Check, Terminal, Database, Server } from 'lucide-react';
 
 const sampleQueries = {
     wallet: `query WalletProfile($address: String!) {
@@ -125,30 +125,36 @@ export default function DemoDeveloper() {
     };
 
     return (
-        <div className="p-6 lg:p-8">
+        <div className="p-2 space-y-6">
             {/* Header */}
-            <div className="mb-8">
-                <div className="flex items-center gap-3 mb-2">
-                    <Code2 className="w-6 h-6 text-emerald-400" />
-                    <h1 className="text-2xl font-bold text-white">API Console</h1>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <h1 className="text-3xl font-bold text-white tracking-tight mb-2 flex items-center gap-3">
+                        <Terminal className="w-8 h-8 text-neon-emerald" />
+                        Neural API Interface
+                    </h1>
+                    <p className="text-slate-400">Direct neural-link to on-chain intelligence</p>
                 </div>
-                <p className="text-slate-400">Explore the WalletWeaver GraphQL API</p>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    SYSTEM ONLINE
+                </div>
             </div>
 
             {/* GraphQL Playground */}
             <div className="grid lg:grid-cols-2 gap-6 mb-8">
                 {/* Query Panel */}
-                <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl overflow-hidden">
-                    <div className="p-4 border-b border-slate-700/50 flex items-center justify-between">
-                        <h2 className="font-semibold text-white">Query</h2>
-                        <div className="flex gap-2">
+                <div className="bg-void-deep border border-white/10 rounded-xl overflow-hidden shadow-2xl flex flex-col h-[500px]">
+                    <div className="p-4 border-b border-white/5 flex items-center justify-between bg-white/5 backdrop-blur-md">
+                        <h2 className="font-bold text-white text-sm tracking-widest uppercase">Query Builder</h2>
+                        <div className="flex gap-2 bg-black/40 p-1 rounded-lg">
                             {Object.keys(sampleQueries).map((key) => (
                                 <button
                                     key={key}
                                     onClick={() => setSelectedQuery(key as keyof typeof sampleQueries)}
-                                    className={`px-3 py-1 text-xs rounded-full transition-colors ${selectedQuery === key
-                                            ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
-                                            : 'bg-slate-700/50 text-slate-400 hover:text-white'
+                                    className={`px-3 py-1 text-[10px] font-bold uppercase rounded-md transition-all ${selectedQuery === key
+                                        ? 'bg-neon-cyan/20 text-neon-cyan shadow-[0_0_10px_rgba(0,229,255,0.2)]'
+                                        : 'text-slate-500 hover:text-white hover:bg-white/5'
                                         }`}
                                 >
                                     {key}
@@ -156,13 +162,13 @@ export default function DemoDeveloper() {
                             ))}
                         </div>
                     </div>
-                    <div className="relative">
-                        <pre className="p-4 text-sm text-slate-300 font-mono overflow-x-auto max-h-80">
+                    <div className="relative flex-1 bg-[#0d0e12]">
+                        <pre className="p-6 text-sm text-blue-300 font-mono overflow-auto h-full scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
                             <code>{sampleQueries[selectedQuery]}</code>
                         </pre>
                         <button
                             onClick={() => handleCopy(sampleQueries[selectedQuery])}
-                            className="absolute top-2 right-2 p-2 bg-slate-700/50 hover:bg-slate-700 rounded-lg transition-colors"
+                            className="absolute top-4 right-4 p-2 bg-white/5 hover:bg-white/10 rounded-lg transition-colors border border-white/5"
                         >
                             {copied ? (
                                 <Check className="w-4 h-4 text-emerald-400" />
@@ -171,37 +177,41 @@ export default function DemoDeveloper() {
                             )}
                         </button>
                     </div>
-                    <div className="p-4 border-t border-slate-700/50 flex justify-end">
-                        <button className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg hover:bg-emerald-500/30 transition-colors">
+                    <div className="p-4 border-t border-white/5 bg-white/5 backdrop-blur-md flex justify-end">
+                        <button className="inline-flex items-center gap-2 px-6 py-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold rounded-lg transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)]">
                             <Play className="w-4 h-4" />
-                            Run Query
+                            Execute
                         </button>
                     </div>
                 </div>
 
                 {/* Response Panel */}
-                <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl overflow-hidden">
-                    <div className="p-4 border-b border-slate-700/50">
-                        <h2 className="font-semibold text-white">Response</h2>
+                <div className="bg-void-deep border border-white/10 rounded-xl overflow-hidden shadow-2xl flex flex-col h-[500px]">
+                    <div className="p-4 border-b border-white/5 bg-white/5 backdrop-blur-md flex items-center justify-between">
+                        <h2 className="font-bold text-white text-sm tracking-widest uppercase">JSON Response</h2>
+                        <span className="text-xs font-mono text-emerald-400">200 OK • 24ms</span>
                     </div>
-                    <pre className="p-4 text-sm text-emerald-400 font-mono overflow-x-auto max-h-96">
+                    <pre className="p-6 text-sm text-emerald-400 font-mono overflow-auto h-full scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent bg-[#0d0e12]">
                         <code>{JSON.stringify(sampleResponse, null, 2)}</code>
                     </pre>
                 </div>
             </div>
 
             {/* SDK Code Snippets */}
-            <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl overflow-hidden">
-                <div className="p-4 border-b border-slate-700/50 flex items-center justify-between">
-                    <h2 className="font-semibold text-white">SDK Examples</h2>
+            <div className="bg-white/5 border border-white/5 rounded-2xl overflow-hidden backdrop-blur-sm">
+                <div className="p-4 border-b border-white/5 flex items-center justify-between">
+                    <h2 className="font-bold text-white text-sm tracking-widest uppercase flex items-center gap-2">
+                        <Code2 className="w-4 h-4 text-neon-violet" />
+                        SDK Integration
+                    </h2>
                     <div className="flex gap-2">
                         {Object.keys(codeSnippets).map((lang) => (
                             <button
                                 key={lang}
                                 onClick={() => setSelectedLang(lang as keyof typeof codeSnippets)}
-                                className={`px-3 py-1 text-xs rounded-full transition-colors capitalize ${selectedLang === lang
-                                        ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
-                                        : 'bg-slate-700/50 text-slate-400 hover:text-white'
+                                className={`px-4 py-1.5 text-xs font-bold uppercase rounded-lg transition-all ${selectedLang === lang
+                                    ? 'bg-neon-violet/20 text-neon-violet border border-neon-violet/30'
+                                    : 'bg-white/5 text-slate-400 border border-transparent hover:text-white hover:border-white/10'
                                     }`}
                             >
                                 {lang}
@@ -209,13 +219,13 @@ export default function DemoDeveloper() {
                         ))}
                     </div>
                 </div>
-                <div className="relative">
-                    <pre className="p-4 text-sm text-slate-300 font-mono overflow-x-auto">
+                <div className="relative bg-black/40">
+                    <pre className="p-6 text-sm text-slate-300 font-mono overflow-x-auto">
                         <code>{codeSnippets[selectedLang]}</code>
                     </pre>
                     <button
                         onClick={() => handleCopy(codeSnippets[selectedLang])}
-                        className="absolute top-2 right-2 p-2 bg-slate-700/50 hover:bg-slate-700 rounded-lg transition-colors"
+                        className="absolute top-4 right-4 p-2 bg-white/5 hover:bg-white/10 rounded-lg transition-colors border border-white/5"
                     >
                         {copied ? (
                             <Check className="w-4 h-4 text-emerald-400" />
@@ -227,18 +237,35 @@ export default function DemoDeveloper() {
             </div>
 
             {/* API Info */}
-            <div className="mt-6 grid sm:grid-cols-3 gap-4">
-                <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
-                    <div className="text-sm text-slate-400 mb-1">Endpoint</div>
-                    <code className="text-sm text-white">https://api.walletweaver.com/graphql</code>
+            <div className="mt-8 grid sm:grid-cols-3 gap-5">
+                <div className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 transition-colors group">
+                    <div className="flex items-center gap-3 mb-2">
+                        <div className="p-2 rounded-lg bg-neon-cyan/20 text-neon-cyan group-hover:scale-110 transition-transform">
+                            <Server className="w-5 h-5" />
+                        </div>
+                        <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Endpoint</div>
+                    </div>
+                    <code className="text-sm text-white font-mono block bg-black/40 p-2 rounded border border-white/5 truncate">
+                        https://api.walletweaver.com/graphql
+                    </code>
                 </div>
-                <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
-                    <div className="text-sm text-slate-400 mb-1">Rate Limit</div>
-                    <span className="text-white">100 requests/min (Free)</span>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 transition-colors group">
+                    <div className="flex items-center gap-3 mb-2">
+                        <div className="p-2 rounded-lg bg-neon-amber/20 text-neon-amber group-hover:scale-110 transition-transform">
+                            <Terminal className="w-5 h-5" />
+                        </div>
+                        <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Rate Limit</div>
+                    </div>
+                    <span className="text-white font-bold">100 req/min (Free Tier)</span>
                 </div>
-                <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
-                    <div className="text-sm text-slate-400 mb-1">SDKs Available</div>
-                    <span className="text-white">TypeScript, Python, Go</span>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 transition-colors group">
+                    <div className="flex items-center gap-3 mb-2">
+                        <div className="p-2 rounded-lg bg-neon-violet/20 text-neon-violet group-hover:scale-110 transition-transform">
+                            <Database className="w-5 h-5" />
+                        </div>
+                        <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">SDK Support</div>
+                    </div>
+                    <span className="text-white font-bold">TS, Python, Go, Rust</span>
                 </div>
             </div>
         </div>

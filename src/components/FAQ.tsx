@@ -38,77 +38,37 @@ const faqs = [
   },
 ];
 
-function FAQItem({ question, answer, isOpen, onClick }: { question: string; answer: string; isOpen: boolean; onClick: () => void }) {
-  return (
-    <motion.div
-      initial={false}
-      className={`glass-card overflow-hidden transition-colors ${isOpen ? 'border-neon-cyan/30' : 'hover:border-slate-600/50'}`}
-    >
-      <button
-        onClick={onClick}
-        className="w-full px-6 py-5 flex items-center justify-between text-left"
-        aria-expanded={isOpen}
-      >
-        <span className={`font-semibold pr-8 transition-colors ${isOpen ? 'text-neon-cyan' : 'text-white'}`}>
-          {question}
-        </span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="flex-shrink-0"
-        >
-          <ChevronDown className={`w-5 h-5 ${isOpen ? 'text-neon-cyan' : 'text-slate-400'}`} />
-        </motion.div>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className="px-6 pb-5">
-              <p className="text-slate-400 leading-relaxed">{answer}</p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
-}
-
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative py-24 sm:py-32 overflow-hidden">
+    <section id="faq" className="relative py-32 sm:py-48 overflow-hidden bg-void-deep">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-void via-void-50 to-void" />
-      <div className="absolute inset-0 grid-overlay opacity-10" />
+      <div className="absolute inset-0 bg-void-deep" />
+      <div className="absolute inset-0 dot-pattern opacity-10" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-electric-cyan/5 blur-[150px] rounded-full opacity-50" />
 
       <div className="relative max-w-3xl mx-auto px-6">
-        <AnimatedSection className="text-center mb-16">
+        <AnimatedSection className="text-center mb-20">
           <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-sm font-medium text-neon-cyan mb-6"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-card text-sm font-bold text-electric-cyan mb-8 border border-electric-cyan/20 shadow-[0_0_20px_rgba(0,229,255,0.1)]"
           >
             <HelpCircle className="w-4 h-4" />
-            FAQ
+            Support Center
           </motion.span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8">
             Frequently Asked{' '}
-            <span className="gradient-text">Questions</span>
+            <span className="bg-gradient-to-r from-electric-cyan to-quantum-purple bg-clip-text text-transparent">Questions</span>
           </h2>
-          <p className="text-lg text-slate-400">
+          <p className="text-xl text-slate-400">
             Everything you need to know about the WalletWeaver platform.
           </p>
         </AnimatedSection>
 
-        <StaggerContainer className="space-y-4" staggerDelay={0.05}>
+        <StaggerContainer className="space-y-6" staggerDelay={0.05}>
           {faqs.map((faq, index) => (
             <StaggerItem key={index}>
               <FAQItem
@@ -122,5 +82,47 @@ export default function FAQ() {
         </StaggerContainer>
       </div>
     </section>
+  );
+}
+
+function FAQItem({ question, answer, isOpen, onClick }: { question: string; answer: string; isOpen: boolean; onClick: () => void }) {
+  return (
+    <motion.div
+      initial={false}
+      whileHover={{ y: isOpen ? 0 : -2 }}
+      className={`glass-card-strong overflow-hidden transition-all duration-300 rounded-2xl ${isOpen ? 'border-electric-cyan/30 shadow-[0_0_30px_rgba(0,229,255,0.1)]' : 'hover:border-electric-cyan/20 border-white/5'}`}
+    >
+      <button
+        onClick={onClick}
+        className="w-full px-8 py-6 flex items-center justify-between text-left"
+        aria-expanded={isOpen}
+      >
+        <span className={`text-lg font-bold pr-8 transition-colors duration-300 ${isOpen ? 'text-electric-cyan' : 'text-white'}`}>
+          {question}
+        </span>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3, type: 'spring', stiffness: 200, damping: 20 }}
+          className="flex-shrink-0"
+        >
+          <ChevronDown className={`w-6 h-6 ${isOpen ? 'text-electric-cyan' : 'text-slate-500'}`} />
+        </motion.div>
+      </button>
+
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <div className="px-8 pb-8 pt-0">
+              <p className="text-slate-400 leading-relaxed text-lg border-t border-white/5 pt-6">{answer}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }

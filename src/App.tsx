@@ -7,20 +7,25 @@ import TargetUsers from './components/TargetUsers';
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import CustomCursor from './components/CustomCursor';
+import PageTransition from './components/PageTransition';
 
 function App() {
   return (
-    <div className="min-h-screen bg-void">
+    <div className="min-h-screen bg-void-deep">
+      <CustomCursor />
       <Navbar />
-      <main>
-        <Hero />
-        <CoreValue />
-        <ProductGrid />
-        <HowItWorks />
-        <TargetUsers />
-        <Pricing />
-        <FAQ />
-      </main>
+      <PageTransition className="flex-1">
+        <main>
+          <Hero />
+          <CoreValue />
+          <ProductGrid />
+          <HowItWorks />
+          <TargetUsers />
+          <Pricing />
+          <FAQ />
+        </main>
+      </PageTransition>
       <Footer />
     </div>
   );

@@ -71,64 +71,93 @@ const getStatusBadge = (status: string) => {
 
 export default function ProductGrid() {
   return (
-    <section id="features" className="relative py-24 sm:py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-void via-void-50 to-void" />
-      <div className="absolute inset-0 grid-overlay opacity-10" />
+    <section id="features" className="relative py-32 sm:py-40 overflow-hidden mesh-gradient-light">
+      {/* Subtle depth layers */}
+      <div className="absolute inset-0 bg-gradient-to-b from-light-warm via-transparent to-light-warm opacity-60" />
+
+      {/* Floating accent shapes */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-electric-cyan/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-quantum-purple/5 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-6">
-        <AnimatedSection className="text-center mb-16">
+        <AnimatedSection className="text-center mb-20">
           <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 rounded-full glass-card text-sm font-medium text-neon-violet mb-6"
+            transition={{ duration: 0.6 }}
+            className="inline-block px-5 py-2 rounded-full bg-electric-cyan/10 border border-electric-cyan/20 text-sm font-semibold text-electric-cyan mb-8 shadow-depth-sm"
           >
             Platform Features
           </motion.span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-light-text mb-6 leading-tight">
             Everything you need for{' '}
-            <span className="gradient-text">on-chain alpha</span>
+            <span className="bg-gradient-to-r from-electric-cyan to-quantum-purple bg-clip-text text-transparent">on-chain alpha</span>
           </h2>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+          <p className="text-xl text-light-text/70 max-w-3xl mx-auto leading-relaxed">
             From wallet research to automated copy-trading — one platform for the entire workflow.
           </p>
         </AnimatedSection>
 
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" staggerDelay={0.12}>
           {products.map((product, index) => (
             <StaggerItem key={index}>
               <motion.div
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -12, scale: 1.02 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 300,
+                  damping: 20
+                }}
                 className="group relative h-full"
               >
-                <div className="relative h-full glass-card p-6 transition-all duration-500 hover:border-neon-cyan/20">
-                  {/* Hover glow */}
-                  <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-${product.color}/20 blur-xl`} />
+                <div className="relative h-full bg-white/80 backdrop-blur-xl p-8 rounded-2xl border border-light-accent shadow-depth-md hover:shadow-depth-lg transition-all duration-500 hover:border-electric-cyan/30 preserve-3d">
+                  {/* Subtle gradient overlay on hover */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-electric-cyan/0 via-transparent to-quantum-purple/0 group-hover:from-electric-cyan/5 group-hover:to-quantum-purple/5 transition-all duration-500 pointer-events-none" />
 
                   {/* Header */}
-                  <div className="relative flex items-start justify-between mb-4">
+                  <div className="relative flex items-start justify-between mb-6">
                     <motion.div
-                      whileHover={{ rotate: 5, scale: 1.1 }}
-                      className={`p-3 rounded-xl bg-${product.color}/10 border border-${product.color}/20`}
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6, type: 'spring' }}
+                      className={`p-4 rounded-xl bg-gradient-to-br ${product.color === 'neon-cyan' ? 'from-electric-cyan/15 to-electric-cyan/5' :
+                          product.color === 'neon-violet' ? 'from-quantum-purple/15 to-quantum-purple/5' :
+                            product.color === 'neon-emerald' ? 'from-plasma-emerald/15 to-plasma-emerald/5' :
+                              product.color === 'neon-amber' ? 'from-solar-amber/15 to-solar-amber/5' :
+                                'from-electric-cyan/15 to-electric-cyan/5'
+                        } border ${product.color === 'neon-cyan' ? 'border-electric-cyan/30' :
+                          product.color === 'neon-violet' ? 'border-quantum-purple/30' :
+                            product.color === 'neon-emerald' ? 'border-plasma-emerald/30' :
+                              product.color === 'neon-amber' ? 'border-solar-amber/30' :
+                                'border-electric-cyan/30'
+                        } shadow-depth-sm`}
                     >
-                      <product.icon className={`w-5 h-5 text-${product.color}`} />
+                      <product.icon className={`w-6 h-6 ${product.color === 'neon-cyan' ? 'text-electric-cyan' :
+                          product.color === 'neon-violet' ? 'text-quantum-purple' :
+                            product.color === 'neon-emerald' ? 'text-plasma-emerald' :
+                              product.color === 'neon-amber' ? 'text-solar-amber' :
+                                'text-electric-cyan'
+                        }`} />
                     </motion.div>
                     {getStatusBadge(product.status)}
                   </div>
 
                   {/* Content */}
-                  <h3 className="relative text-lg font-semibold text-white mb-3 group-hover:text-neon-cyan transition-colors">
+                  <h3 className="relative text-xl font-bold text-light-text mb-4 group-hover:text-electric-cyan transition-colors duration-300">
                     {product.title}
                   </h3>
-                  <p className="relative text-sm text-slate-400 leading-relaxed">
+                  <p className="relative text-base text-light-text/70 leading-relaxed">
                     {product.description}
                   </p>
 
-                  {/* Corner accent */}
-                  <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-xl">
-                    <div className={`absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-${product.color}/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity`} />
+                  {/* Floating corner accent */}
+                  <div className="absolute bottom-0 right-0 w-32 h-32 overflow-hidden rounded-br-2xl pointer-events-none">
+                    <div className={`absolute bottom-0 right-0 w-full h-full bg-gradient-to-tl ${product.color === 'neon-cyan' ? 'from-electric-cyan/10' :
+                        product.color === 'neon-violet' ? 'from-quantum-purple/10' :
+                          product.color === 'neon-emerald' ? 'from-plasma-emerald/10' :
+                            product.color === 'neon-amber' ? 'from-solar-amber/10' :
+                              'from-electric-cyan/10'
+                      } to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                   </div>
                 </div>
               </motion.div>

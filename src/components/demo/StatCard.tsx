@@ -1,70 +1,46 @@
+import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
-import { TrendingUp, TrendingDown } from 'lucide-react';
 
 interface StatCardProps {
   title: string;
   value: string | number;
-  change?: number;
-  icon?: ReactNode;
-  prefix?: string;
+  change: number;
+  icon: ReactNode;
   suffix?: string;
-  color?: 'cyan' | 'violet' | 'emerald' | 'amber';
 }
 
-export default function StatCard({
-  title,
-  value,
-  change,
-  icon,
-  prefix = '',
-  suffix = '',
-  color = 'cyan',
-}: StatCardProps) {
-  const isPositive = change !== undefined && change >= 0;
-
-  const colorMap = {
-    cyan: 'text-neon-cyan border-neon-cyan/20 bg-neon-cyan/5',
-    violet: 'text-neon-violet border-neon-violet/20 bg-neon-violet/5',
-    emerald: 'text-neon-emerald border-neon-emerald/20 bg-neon-emerald/5',
-    amber: 'text-neon-amber border-neon-amber/20 bg-neon-amber/5',
-  };
+export default function StatCard({ title, value, change, icon, suffix }: StatCardProps) {
+  const isPositive = change >= 0;
 
   return (
     <motion.div
-      whileHover={{ y: -4, scale: 1.02 }}
-      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-      className="glass-card p-5 hover:border-neon-cyan/20 transition-colors group"
+      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+      className="group relative bg-white/5 border border-white/10 rounded-2xl p-5 overflow-hidden transition-all hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_30px_rgba(0,0,0,0.2)]"
     >
-      <div className="flex items-start justify-between mb-3">
-        <span className="text-sm text-slate-400">{title}</span>
-        {icon && (
-          <div className={`p-2 rounded-lg ${colorMap[color]}`}>
-            {icon}
-          </div>
-        )}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+      <div className="relative z-10 flex items-center justify-between mb-4">
+        <span className="text-slate-400 text-sm font-medium tracking-wide uppercase">{title}</span>
+        <div className="p-2.5 bg-white/5 border border-white/5 rounded-xl group-hover:bg-white/10 group-hover:border-white/10 transition-all shadow-inner">
+          {icon}
+        </div>
       </div>
 
-      <div className="flex items-end justify-between">
-        <div className="text-2xl font-bold text-white group-hover:text-neon-cyan transition-colors">
-          {prefix}
-          {typeof value === 'number' ? value.toLocaleString() : value}
-          {suffix}
-        </div>
-
-        {change !== undefined && (
-          <div
-            className={`flex items-center gap-1 text-sm ${
-              isPositive ? 'text-neon-emerald' : 'text-neon-rose'
-            }`}
-          >
-            {isPositive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
-            <span>
-              {isPositive ? '+' : ''}
-              {change.toFixed(1)}%
-            </span>
+      <div className="relative z-10 flex items-end justify-between">
+        <div>
+          <div className="text-3xl font-bold text-white tracking-tight leading-none mb-1">
+            {value}
+            {suffix && <span className="text-sm font-medium text-slate-500 ml-1.5">{suffix}</span>}
           </div>
-        )}
+        </div>
+        <div className={`flex items-center gap-0.5 text-sm font-medium px-2 py-1 rounded-lg ${isPositive
+            ? 'text-emerald-400 bg-emerald-500/10 border border-emerald-500/20'
+            : 'text-rose-400 bg-rose-500/10 border border-rose-500/20'
+          }`}>
+          {isPositive ? <ArrowUpRight className="w-3.5 h-3.5" /> : <ArrowDownRight className="w-3.5 h-3.5" />}
+          {Math.abs(change)}%
+        </div>
       </div>
     </motion.div>
   );

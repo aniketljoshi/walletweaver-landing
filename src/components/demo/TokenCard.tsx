@@ -53,57 +53,59 @@ export default function TokenCard({
   return (
     <Link to={`/demo/tokens/${address}`}>
       <motion.div
-        whileHover={{ y: -4, scale: 1.02 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="block glass-card p-5 hover:border-neon-cyan/20 transition-colors group"
+        whileHover={{ y: -5, transition: { duration: 0.2 } }}
+        className="group relative bg-white/5 border border-white/10 rounded-2xl p-6 overflow-hidden transition-all hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_30px_rgba(0,0,0,0.2)]"
       >
+        <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-neon-cyan via-neon-violet to-neon-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
+
         {/* Header */}
         <div className="flex items-start justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-cyan/20 to-neon-violet/20 flex items-center justify-center border border-neon-cyan/20">
-              <span className="font-bold text-white text-sm">{symbol.slice(0, 2)}</span>
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center border border-white/10 group-hover:border-neon-cyan/50 transition-colors shadow-inner">
+              <span className="font-bold text-white text-lg tracking-tight">{symbol.slice(0, 2)}</span>
             </div>
             <div>
-              <h3 className="font-semibold text-white group-hover:text-neon-cyan transition-colors">
+              <h3 className="font-bold text-white text-lg group-hover:text-neon-cyan transition-colors tracking-tight">
                 {symbol}
               </h3>
-              <p className="text-xs text-slate-500">{name}</p>
+              <p className="text-xs text-slate-500 font-medium">{name}</p>
             </div>
           </div>
-          {NetworkIcon && <NetworkIcon className={`w-5 h-5 ${chainColors[chain]}`} />}
+          {NetworkIcon ?
+            <NetworkIcon className={`w-5 h-5 ${chainColors[chain]} opacity-80`} /> :
+            <span className="text-[10px] font-bold uppercase text-slate-500 bg-white/5 px-1.5 py-0.5 rounded">{chain}</span>
+          }
         </div>
 
         {/* Price */}
-        <div className="mb-4">
-          <div className="flex items-baseline gap-2">
-            <span className="text-2xl font-bold text-white">${formatPrice(price)}</span>
+        <div className="mb-6 pb-6 border-b border-white/5">
+          <div className="flex items-baseline justify-between">
+            <span className="text-2xl font-bold text-white font-mono tracking-tight">${formatPrice(price)}</span>
             <span
-              className={`flex items-center gap-1 text-sm ${
-                isPositive ? 'text-neon-emerald' : 'text-neon-rose'
-              }`}
+              className={`flex items-center gap-1 text-sm font-bold px-2 py-1 rounded-lg ${isPositive ? 'text-neon-emerald bg-emerald-500/10' : 'text-neon-rose bg-rose-500/10'
+                }`}
             >
-              {isPositive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
-              {isPositive ? '+' : ''}
+              {isPositive ? <TrendingUp className="w-3.5 h-3.5" /> : <TrendingDown className="w-3.5 h-3.5" />}
               {change24h}%
             </span>
           </div>
         </div>
 
-        {/* Smart Money Score */}
-        <div className="flex items-center gap-2 mb-3">
-          <Sparkles className="w-4 h-4 text-neon-amber" />
-          <span className="text-sm text-slate-400">Smart Money:</span>
-          <span
-            className={`text-sm font-semibold ${
-              smartMoneyAccumulation >= 80
-                ? 'text-neon-emerald'
-                : smartMoneyAccumulation >= 60
-                ? 'text-neon-amber'
-                : 'text-slate-400'
-            }`}
-          >
-            {smartMoneyAccumulation}%
-          </span>
+        {/* Smart Money Signal */}
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-neon-amber" />
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Smart Interest</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-24 h-1.5 bg-white/10 rounded-full overflow-hidden">
+              <div
+                className={`h-full rounded-full ${smartMoneyAccumulation >= 70 ? 'bg-neon-emerald' : 'bg-neon-amber'}`}
+                style={{ width: `${smartMoneyAccumulation}%` }}
+              />
+            </div>
+            <span className="text-sm font-bold text-white font-mono">{smartMoneyAccumulation}%</span>
+          </div>
         </div>
 
         {/* Narrative tags */}
@@ -111,9 +113,8 @@ export default function TokenCard({
           {narrativeTags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className={`px-2 py-0.5 rounded-full text-xs border ${
-                narrativeColors[tag] || 'text-slate-400 border-slate-600/30 bg-slate-600/5'
-              }`}
+              className={`px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider border ${narrativeColors[tag] || 'text-slate-400 border-slate-600/30 bg-slate-600/5'
+                }`}
             >
               {tag}
             </span>

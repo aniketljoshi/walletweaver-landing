@@ -50,70 +50,75 @@ export default function WalletCard({
   return (
     <Link to={`/demo/wallets/${address}`}>
       <motion.div
-        whileHover={{ y: -4, scale: 1.02 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="block glass-card p-5 hover:border-neon-cyan/20 transition-colors group"
+        whileHover={{ y: -5, transition: { duration: 0.2 } }}
+        className="group relative bg-white/5 border border-white/10 rounded-2xl p-6 overflow-hidden transition-all hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_30px_rgba(0,0,0,0.2)]"
       >
+        <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-neon-cyan via-neon-violet to-neon-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
+
         {/* Header */}
-        <div className="flex items-start justify-between mb-4">
-          <div className="flex items-center gap-3">
-            {NetworkIcon && <NetworkIcon className={`w-5 h-5 ${chainColors[chain]}`} />}
+        <div className="flex items-start justify-between mb-6">
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center border border-white/10 group-hover:border-neon-cyan/50 transition-colors">
+                {NetworkIcon ? <NetworkIcon className={`w-5 h-5 ${chainColors[chain]}`} /> : <span className="text-xs font-bold">{chain[0].toUpperCase()}</span>}
+              </div>
+              <div className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-[#090A0B] flex items-center justify-center bg-void-deep`}>
+                <div className={`w-2 h-2 rounded-full ${smartMoneyScore >= 80 ? 'bg-neon-emerald shadow-[0_0_5px_theme(colors.neon-emerald)]' : 'bg-neon-amber'}`} />
+              </div>
+            </div>
             <div>
-              <h3 className="font-semibold text-white group-hover:text-neon-cyan transition-colors">
+              <h3 className="font-bold text-white text-lg group-hover:text-neon-cyan transition-colors tracking-tight">
                 {label}
               </h3>
-              <p className="text-xs text-slate-500 font-mono">
-                {ensName || `${address.slice(0, 6)}...${address.slice(-4)}`}
-              </p>
+              <div className="flex items-center gap-2">
+                <p className="text-xs text-slate-500 font-mono tracking-wide">
+                  {ensName || `${address.slice(0, 6)}...${address.slice(-4)}`}
+                </p>
+                <ExternalLink className="w-3 h-3 text-slate-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
             </div>
           </div>
-          <ExternalLink className="w-4 h-4 text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-        </div>
 
-        {/* Entity badge */}
-        <div className="mb-4">
           <span
-            className={`inline-flex px-2 py-1 rounded-full text-xs font-medium border ${
-              entityColors[entityType] || entityColors.trader
-            }`}
+            className={`inline-flex px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${entityColors[entityType] || entityColors.trader
+              }`}
           >
             {entityType.replace('_', ' ')}
           </span>
         </div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/5">
           <div>
-            <p className="text-xs text-slate-500 mb-1">Smart Money Score</p>
+            <p className="text-[10px] uppercase font-bold text-slate-500 mb-1 tracking-wider">Smart Score</p>
             <p
-              className={`text-lg font-bold ${
-                smartMoneyScore >= 80
+              className={`text-xl font-bold font-mono ${smartMoneyScore >= 80
                   ? 'text-neon-emerald'
                   : smartMoneyScore >= 60
-                  ? 'text-neon-amber'
-                  : 'text-slate-400'
-              }`}
+                    ? 'text-neon-amber'
+                    : 'text-slate-400'
+                }`}
             >
               {smartMoneyScore}
             </p>
           </div>
           <div>
-            <p className="text-xs text-slate-500 mb-1">30d PnL</p>
-            <p className={`text-lg font-bold flex items-center gap-1 ${isPositive ? 'text-neon-emerald' : 'text-neon-rose'}`}>
+            <p className="text-[10px] uppercase font-bold text-slate-500 mb-1 tracking-wider">30d PnL</p>
+            <p className={`text-xl font-bold font-mono flex items-center gap-1.5 ${isPositive ? 'text-neon-emerald' : 'text-neon-rose'}`}>
               {isPositive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
               ${Math.abs(pnl30d / 1000000).toFixed(2)}M
             </p>
           </div>
           <div>
-            <p className="text-xs text-slate-500 mb-1">30d ROI</p>
-            <p className={`text-sm font-semibold ${roi30d >= 0 ? 'text-neon-emerald' : 'text-neon-rose'}`}>
+            <p className="text-[10px] uppercase font-bold text-slate-500 mb-1 tracking-wider">30d ROI</p>
+            <p className={`text-sm font-bold font-mono ${roi30d >= 0 ? 'text-neon-emerald' : 'text-neon-rose'}`}>
               {roi30d >= 0 ? '+' : ''}
               {roi30d}%
             </p>
           </div>
           <div>
-            <p className="text-xs text-slate-500 mb-1">Win Rate</p>
-            <p className="text-sm font-semibold text-white">{winRate}%</p>
+            <p className="text-[10px] uppercase font-bold text-slate-500 mb-1 tracking-wider">Win Rate</p>
+            <p className="text-sm font-bold font-mono text-white">{winRate}%</p>
           </div>
         </div>
       </motion.div>

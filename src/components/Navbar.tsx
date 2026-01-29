@@ -36,35 +36,44 @@ export default function Navbar() {
   return (
     <>
       <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? 'bg-void/80 backdrop-blur-xl border-b border-glass-border'
-          : 'bg-transparent'
-          }`}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+        className="fixed top-0 left-0 right-0 z-50 px-4 pt-4"
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <nav className="flex items-center justify-between h-16 lg:h-20">
+        <div className={`max-w-7xl mx-auto transition-all duration-500 rounded-2xl ${isScrolled
+          ? 'glass-card border-electric-cyan/20 shadow-[0_8px_32px_rgba(0,229,255,0.1)] backdrop-blur-2xl'
+          : 'bg-void-deep/40 backdrop-blur-md border border-white/5'
+          }`}
+        >
+          <nav className="flex items-center justify-between h-16 lg:h-18 px-6">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="relative flex items-center justify-center w-10 h-10">
-                <img src="/favicon.svg" alt="WalletWeaver Logo" className="w-8 h-8 object-contain" />
-                <div className="absolute inset-0 bg-neon-cyan/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
-              </div>
-              <span className="text-lg font-semibold text-white group-hover:text-neon-cyan transition-colors">
+            <Link to="/" className="flex items-center gap-3 group relative">
+              <motion.div
+                whileHover={{ scale: 1.05, rotate: 5 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                className="relative flex items-center justify-center w-10 h-10"
+              >
+                <img src="/favicon.svg" alt="WalletWeaver Logo" className="w-8 h-8 object-contain relative z-10" />
+                <div className="absolute inset-0 bg-electric-cyan/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+              </motion.div>
+              <span className="text-lg font-bold text-white group-hover:text-electric-cyan transition-colors duration-300">
                 Wallet<span className="gradient-text">Weaver</span>
               </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
-                <motion.div key={link.label} whileHover={{ y: -2 }}>
+                <motion.div
+                  key={link.label}
+                  whileHover={{ y: -2 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                >
                   {link.isRoute ? (
                     <Link
                       to={link.href}
-                      className="text-sm font-medium text-slate-400 hover:text-neon-cyan transition-colors"
+                      className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-electric-cyan transition-all duration-300 rounded-lg hover:bg-electric-cyan/5"
                     >
                       {link.label}
                     </Link>
@@ -72,7 +81,7 @@ export default function Navbar() {
                     <a
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className="text-sm font-medium text-slate-400 hover:text-neon-cyan transition-colors"
+                      className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-electric-cyan transition-all duration-300 rounded-lg hover:bg-electric-cyan/5"
                     >
                       {link.label}
                     </a>
@@ -84,9 +93,10 @@ export default function Navbar() {
             {/* CTA Button */}
             <div className="hidden md:block">
               <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-5 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-neon-cyan/20 to-neon-violet/20 border border-neon-cyan/30 rounded-xl hover:border-neon-cyan/50 transition-colors btn-glow"
+                whileHover={{ scale: 1.05, y: -1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                className="px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-electric-cyan/20 to-quantum-purple/20 border border-electric-cyan/40 rounded-xl hover:border-electric-cyan/60 hover:shadow-[0_0_30px_rgba(0,229,255,0.3)] transition-all duration-300 btn-glow"
               >
                 Join Waitlist
               </motion.button>
@@ -121,8 +131,8 @@ export default function Navbar() {
             />
 
             {/* Menu Content */}
-            <div className="relative pt-20 px-6">
-              <nav className="flex flex-col gap-4">
+            <div className="relative pt-24 px-6">
+              <nav className="flex flex-col gap-2">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.label}
@@ -134,7 +144,7 @@ export default function Navbar() {
                       <Link
                         to={link.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-3 text-lg font-medium text-slate-300 hover:text-neon-cyan transition-colors border-b border-glass-border"
+                        className="block py-4 px-4 text-lg font-medium text-slate-200 hover:text-electric-cyan transition-all duration-300 rounded-xl hover:bg-electric-cyan/10 border-b border-white/5"
                       >
                         {link.label}
                       </Link>
@@ -142,7 +152,7 @@ export default function Navbar() {
                       <a
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link.href)}
-                        className="block py-3 text-lg font-medium text-slate-300 hover:text-neon-cyan transition-colors border-b border-glass-border"
+                        className="block py-4 px-4 text-lg font-medium text-slate-200 hover:text-electric-cyan transition-all duration-300 rounded-xl hover:bg-electric-cyan/10 border-b border-white/5"
                       >
                         {link.label}
                       </a>
@@ -156,7 +166,7 @@ export default function Navbar() {
                   transition={{ delay: 0.4 }}
                   className="pt-4"
                 >
-                  <button className="w-full py-3 text-center font-medium text-white bg-gradient-to-r from-neon-cyan/20 to-neon-violet/20 border border-neon-cyan/30 rounded-xl">
+                  <button className="w-full py-4 text-center font-semibold text-white bg-gradient-to-r from-electric-cyan/20 to-quantum-purple/20 border border-electric-cyan/40 rounded-xl hover:border-electric-cyan/60 transition-all duration-300 shadow-[0_0_20px_rgba(0,229,255,0.2)]">
                     Join Waitlist
                   </button>
                 </motion.div>

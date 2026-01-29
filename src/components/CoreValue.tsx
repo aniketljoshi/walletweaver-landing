@@ -28,26 +28,27 @@ const values = [
 
 export default function CoreValue() {
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
+    <section className="relative py-32 sm:py-48 overflow-hidden bg-void-deep perspective-2000">
       {/* Background elements */}
-      <div className="absolute inset-0 dot-pattern opacity-20" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-neon-cyan/30 to-transparent" />
+      <div className="absolute inset-0 dot-pattern opacity-10" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-electric-cyan/30 to-transparent" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-quantum-purple/30 to-transparent" />
 
       <div className="relative max-w-7xl mx-auto px-6">
-        <AnimatedSection className="text-center mb-16">
+        <AnimatedSection className="text-center mb-24">
           <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 rounded-full glass-card text-sm font-medium text-neon-cyan mb-6"
+            className="inline-block px-5 py-2 rounded-full glass-card text-sm font-medium text-electric-cyan mb-8 border border-electric-cyan/20 shadow-[0_0_20px_rgba(0,229,255,0.1)]"
           >
             Core Capabilities
           </motion.span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8">
             On-chain intelligence,{' '}
-            <span className="gradient-text">production-ready</span>
+            <span className="bg-gradient-to-r from-electric-cyan to-quantum-purple bg-clip-text text-transparent">production-ready</span>
           </h2>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Enterprise infrastructure that powers hedge funds, trading desks, protocols, and compliance teams worldwide.
           </p>
         </AnimatedSection>
@@ -56,30 +57,30 @@ export default function CoreValue() {
           {values.map((value, index) => (
             <StaggerItem key={index}>
               <motion.div
-                whileHover={{ y: -8, rotateX: 5 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -12, scale: 1.02, rotateX: 5 }}
+                transition={{ type: 'spring', stiffness: 200, damping: 20 }}
                 className="group relative h-full perspective-1000"
               >
-                <div className="relative h-full glass-card-strong p-8 transition-all duration-500 group-hover:border-neon-cyan/30">
+                <div className="relative h-full glass-card-strong p-10 transition-all duration-500 group-hover:border-electric-cyan/30 rounded-3xl overflow-hidden preserve-3d shadow-2xl">
                   {/* Glow effect on hover */}
-                  <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${value.glowColor} blur-xl`} />
+                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${value.glowColor} -translate-z-10`} />
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   {/* Icon */}
-                  <div className={`relative inline-flex p-4 rounded-xl bg-gradient-to-br ${value.gradient} bg-opacity-10 mb-6`}>
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/10 to-transparent" />
-                    <value.icon className="relative w-7 h-7 text-white" strokeWidth={1.5} />
+                  <div className={`relative inline-flex p-5 rounded-2xl bg-gradient-to-br ${value.gradient} mb-8 shadow-inner border border-white/10`}>
+                    <value.icon className="relative w-8 h-8 text-white" strokeWidth={1.5} />
                   </div>
 
                   {/* Content */}
-                  <h3 className="relative text-xl font-semibold text-white mb-4 group-hover:text-neon-cyan transition-colors">
+                  <h3 className="relative text-2xl font-bold text-white mb-4 group-hover:text-electric-cyan transition-colors translate-z-10">
                     {value.title}
                   </h3>
-                  <p className="relative text-slate-400 leading-relaxed">
+                  <p className="relative text-lg text-slate-400 leading-relaxed translate-z-10">
                     {value.description}
                   </p>
 
                   {/* Bottom accent line */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${value.gradient} opacity-0 group-hover:opacity-100 transition-opacity rounded-b-2xl`} />
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${value.gradient} opacity-0 group-hover:opacity-100 transition-opacity`} />
                 </div>
               </motion.div>
             </StaggerItem>
