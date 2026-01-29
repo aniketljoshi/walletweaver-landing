@@ -36,15 +36,20 @@ export default function DemoLayout() {
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
-          <div className="flex items-center gap-3">
-            <div className="p-2 glass-card border-neon-cyan/30">
-              <Sparkles className="w-5 h-5 text-neon-cyan" />
+          <div className="flex items-center gap-3 group cursor-default">
+            <div className="relative flex items-center justify-center w-10 h-10">
+              <img src="/favicon.svg" alt="WalletWeaver Logo" className="w-8 h-8 object-contain" />
+              <div className="absolute inset-0 bg-neon-cyan/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
             </div>
-            <div>
-              <span className="font-semibold text-white">WalletWeaver</span>
-              <span className="ml-2 px-2 py-0.5 bg-neon-amber/10 border border-neon-amber/30 text-neon-amber text-xs font-medium rounded-full">
-                Demo
-              </span>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2">
+                <span className="font-semibold text-white group-hover:text-neon-cyan transition-colors">
+                  Wallet<span className="gradient-text">Weaver</span>
+                </span>
+                <span className="px-1.5 py-0.5 bg-neon-amber/10 border border-neon-amber/30 text-neon-amber text-[10px] uppercase tracking-wider font-bold rounded-full">
+                  Demo
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -59,11 +64,10 @@ export default function DemoLayout() {
               <Link key={item.path} to={item.path}>
                 <motion.div
                   whileHover={{ x: 4 }}
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${
-                    isActive
-                      ? `bg-${item.color}/10 text-${item.color} border border-${item.color}/30`
-                      : 'text-slate-400 hover:text-white hover:bg-glass-50'
-                  }`}
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${isActive
+                    ? `bg-${item.color}/10 text-${item.color} border border-${item.color}/30`
+                    : 'text-slate-400 hover:text-white hover:bg-glass-50'
+                    }`}
                 >
                   <item.icon className="w-5 h-5" />
                   <span className="font-medium">{item.label}</span>
