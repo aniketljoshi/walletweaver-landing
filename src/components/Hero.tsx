@@ -75,8 +75,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-6xl sm:text-7xl lg:text-9xl font-bold tracking-tight text-white mb-8 leading-[0.9]"
           >
-            The Bloomberg Terminal for{' '}
-            <span className="gradient-text">On-Chain Intelligence</span>
+            See The On-Chain Story{' '}
+            <span className="gradient-text">Behind Every Wallet</span>
           </motion.h1>
 
           {/* Subheadline */}

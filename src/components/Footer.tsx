@@ -58,7 +58,7 @@ export default function Footer() {
                 </span>
               </Link>
               <p className="text-base text-slate-400 mb-8 leading-relaxed">
-                The Bloomberg Terminal for <br />On-Chain Intelligence.
+                See The On-Chain Story <br />Behind Every Wallet
               </p>
               <div className="flex items-center gap-3">
                 {socialLinks.map((social) => (
