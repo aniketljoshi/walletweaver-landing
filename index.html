@@ -9,7 +9,7 @@
   <title>WalletWeaver - See The On-Chain Story Behind Every Wallet</title>
   <meta name="title" content="WalletWeaver - See The On-Chain Story Behind Every Wallet" />
   <meta name="description"
-    content="Real-time blockchain indexing, ML-powered wallet clustering, and smart-money scoring. One GraphQL API for traders, funds, developers, and compliance teams across Ethereum, Solana, Base, Arbitrum, and Polygon." />
+    content="Track smart money wallets with ML-powered wallet clustering, entity resolution, and real-time alerts. GraphQL API for Ethereum, Solana, Base, Arbitrum & Polygon." />
   <meta name="keywords"
     content="blockchain API, wallet clustering, on-chain intelligence, smart money tracking, crypto analytics, GraphQL blockchain, wallet scoring, entity resolution, DeFi analytics, copy trading, crypto SDK" />
   <meta name="author" content="WalletWeaver" />
@@ -61,19 +61,39 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "WalletWeaver",
-      "description": "Enterprise-grade blockchain wallet intelligence platform for funds, protocols, and research teams",
+      "description": "Blockchain wallet intelligence platform with ML-powered wallet clustering, entity resolution, and smart-money scoring via GraphQL API",
       "url": "https://walletweaver.com",
-      "applicationCategory": "BusinessApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "ratingCount": "1"
-      }
+      "applicationCategory": ["BusinessApplication", "FinanceApplication"],
+      "operatingSystem": "All",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "1,000 API calls/month, 5 chains, TypeScript SDK"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro",
+          "price": "199",
+          "priceCurrency": "USD",
+          "description": "100,000 API calls/month, all SDKs, real-time alerts"
+        },
+        {
+          "@type": "Offer",
+          "name": "Enterprise",
+          "description": "Unlimited API calls, custom SLA, self-hosted deployment"
+        }
+      ],
+      "featureList": [
+        "Real-time blockchain indexing across 5 chains",
+        "ML-powered wallet clustering and entity resolution",
+        "Smart money scoring and leaderboards",
+        "Real-time alerts via Telegram, Discord, Email, Webhooks",
+        "GraphQL API with TypeScript, Python, Go SDKs",
+        "SOC 2 Type II compliant"
+      ]
     }
     </script>
 
@@ -83,13 +103,92 @@
       "@type": "Organization",
       "name": "WalletWeaver",
       "url": "https://walletweaver.com",
-      "description": "Blockchain wallet intelligence platform transforming addresses into wallet clusters and entity profiles",
+      "logo": "https://walletweaver.com/favicon.svg",
+      "description": "Blockchain wallet intelligence platform transforming addresses into wallet clusters, entity profiles, and smart money signals",
       "email": "founders@walletweaver.com",
+      "sameAs": [
+        "https://twitter.com/WalletWeaverHQ",
+        "https://linkedin.com/company/walletweaver",
+        "https://github.com/walletweaver"
+      ],
       "contactPoint": {
         "@type": "ContactPoint",
-        "contactType": "General Inquiry",
+        "contactType": "Sales",
         "email": "founders@walletweaver.com"
       }
+    }
+    </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which blockchains does WalletWeaver support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WalletWeaver currently supports Ethereum, Solana, Base, Arbitrum, and Polygon with real-time indexing. Additional chains are added based on customer demand — Enterprise customers can request priority chain support."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I access the WalletWeaver API?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sign up for a free account to get your API key instantly. Our GraphQL API comes with comprehensive documentation, interactive playground, and production-ready SDKs for TypeScript, Python, and Go."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is WalletWeaver's data latency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our Kafka-powered infrastructure delivers sub-second latency from on-chain event to queryable data. Real-time alerts hit your webhooks within milliseconds of block confirmation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is WalletWeaver SOC 2 compliant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. WalletWeaver maintains SOC 2 Type II compliance. We offer audit logs, role-based access control, and can provide attestation reports for Enterprise customers upon request."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does smart-money scoring work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our ML models analyze historical wallet performance across ROI, win rate, timing, and holding patterns. Scores are updated continuously as new on-chain data is processed. The methodology is documented in our API reference."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does WalletWeaver offer a free tier?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our Free tier includes 1,000 API calls per month, access to all 5 chains, and the TypeScript SDK. It's perfect for exploring the platform and building prototypes before upgrading."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I self-host WalletWeaver?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Enterprise customers have the option for self-hosted deployment in their own infrastructure. This includes the full data pipeline, clustering algorithms, and API layer. Contact our sales team to discuss requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What alert channels does WalletWeaver support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Real-time alerts can be delivered via Telegram, Discord, Email, or custom Webhooks. Enterprise customers can also integrate with Slack and PagerDuty."
+          }
+        }
+      ]
     }
     </script>
 

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:walletweaver.com)",
+      "Bash(powershell -Command \"Get-Item ''C:\\\\Users\\\\inaj7\\\\source\\\\repos\\\\web3\\\\walletweaver-landing\\\\dist\\\\assets\\\\*'' | Select-Object Name, Length | Format-Table -AutoSize\")",
+      "WebFetch(domain:www.googleapis.com)",
+      "Bash(curl:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(node:*)"
+    ]
+  }
+}
