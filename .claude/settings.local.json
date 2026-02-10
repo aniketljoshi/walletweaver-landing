@@ -6,7 +6,10 @@
       "WebFetch(domain:www.googleapis.com)",
       "Bash(curl:*)",
       "Bash(powershell -Command:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }

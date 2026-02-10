@@ -1,160 +1,181 @@
-import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Play, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, ChevronDown } from 'lucide-react';
+import { AuroraBackground } from './ui/AuroraBackground';
+import { BackgroundBeams } from './ui/BackgroundBeams';
+import { TextGenerateEffect } from './ui/TextGenerateEffect';
+import { FlipWords } from './ui/FlipWords';
+import { MeteorEffect } from './ui/MeteorEffect';
 import { EthereumIcon, SolanaIcon, BaseIcon, ArbitrumIcon, PolygonIcon } from './NetworkIcons';
-import ParticleNetwork from './ParticleNetwork';
-// import Three3DBackground from './Three3DBackground';
-import MagneticButton from './MagneticButton';
-// import { Suspense } from 'react';
+
+const chainIcons = [
+  { name: 'Ethereum', Icon: EthereumIcon, color: '#627EEA' },
+  { name: 'Solana', Icon: SolanaIcon, color: '#14F195' },
+  { name: 'Base', Icon: BaseIcon, color: '#0052FF' },
+  { name: 'Arbitrum', Icon: ArbitrumIcon, color: '#2D374B' },
+  { name: 'Polygon', Icon: PolygonIcon, color: '#8247E5' },
+];
 
 export default function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end start'],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
-
   return (
-    <section ref={containerRef} className="relative min-h-screen overflow-hidden perspective-2000">
-      {/* Animated particle network background */}
-      {/* <Suspense fallback={null}>
-        <Three3DBackground />
-      </Suspense> */}
-      <ParticleNetwork />
+    <AuroraBackground className="relative min-h-screen overflow-hidden">
+      {/* Background Beams */}
+      <BackgroundBeams className="opacity-40" />
 
-      {/* Parallax Background Layers */}
-      <motion.div style={{ y: useTransform(scrollYProgress, [0, 1], ['0%', '20%']) }} className="absolute inset-0 z-0 text-white pointer-events-none">
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-cyan/20 rounded-full blur-[120px]"
-          />
-          <motion.div
-            animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.2, 0.4, 0.2],
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-            className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-neon-violet/10 rounded-full blur-[120px]"
-          />
-        </div>
-      </motion.div>
+      {/* Meteor Effect */}
+      <MeteorEffect number={15} />
+
+      {/* Grid overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-grid-small-[rgba(0,229,255,0.03)]"
+        style={{
+          maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 80%)',
+        }}
+      />
+
+      {/* Glowing orbs */}
+      <div className="pointer-events-none absolute top-1/4 left-1/4 w-96 h-96 bg-neon-cyan/10 rounded-full blur-[120px] animate-glow-pulse-slow" />
+      <div className="pointer-events-none absolute bottom-1/3 right-1/4 w-96 h-96 bg-quantum-purple/10 rounded-full blur-[120px] animate-glow-pulse-slow" />
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-20">
-        <motion.div
-          style={{ y, opacity, scale }}
-          className="text-center max-w-5xl mx-auto"
-        >
-          {/* Badge */}
+      <div className="relative z-20 flex flex-col items-center justify-center min-h-screen px-4 pt-20">
+        <div className="text-center max-w-5xl mx-auto">
+          {/* Beta Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-neon-cyan/20 mb-8"
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm mb-8"
           >
-            <Sparkles className="w-4 h-4 text-neon-cyan" />
-            <span className="text-sm font-medium text-neon-cyan tracking-wide uppercase">
-              AI-Powered On-Chain Intelligence
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+            </span>
+            <span className="text-sm font-medium text-slate-300 tracking-wide">
+              Now in Beta
             </span>
           </motion.div>
 
           {/* Headline */}
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-6xl sm:text-7xl lg:text-9xl font-bold tracking-tight text-white mb-8 leading-[0.9]"
+            className="mb-6"
           >
-            See The On-Chain Story{' '}
-            <span className="gradient-text">Behind Every Wallet</span>
-          </motion.h1>
+            <TextGenerateEffect
+              words="See The On-Chain Story Behind Every Wallet"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]"
+            />
+          </motion.div>
 
-          {/* Subheadline */}
-          <motion.p
+          {/* FlipWords line */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-xl sm:text-2xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8"
           >
-            Real-time blockchain indexing. ML-powered wallet clustering. Smart-money scoring. One GraphQL API to power your trading edge, portfolio analytics, and compliance workflows.
+            <FlipWords
+              words={['Decode', 'Track', 'Analyze', 'Discover']}
+              className="gradient-text"
+              duration={2500}
+            />
+            <span className="text-slate-400 ml-2">the blockchain</span>
+          </motion.div>
+
+          {/* Subtext */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed"
+          >
+            Real-time multi-chain intelligence. ML-powered entity resolution.
+            Enterprise-grade GraphQL API.
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
-            <Link to="/waitlist" className="group">
-              <MagneticButton
+            {/* Primary CTA */}
+            <Link to="/waitlist">
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-neon-cyan text-void-deep font-bold rounded-xl text-lg hover:bg-white transition-colors flex items-center gap-2 shadow-[0_0_30px_rgba(0,229,255,0.4)]"
+                className="relative px-8 py-4 bg-electric-cyan text-void-deep font-bold rounded-xl text-lg flex items-center gap-2 shadow-[0_0_30px_rgba(0,229,255,0.4)] hover:shadow-[0_0_50px_rgba(0,229,255,0.6)] transition-shadow duration-300"
               >
-                Join the Waitlist
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </MagneticButton>
+                Join Waitlist
+                <ArrowRight className="w-5 h-5" />
+                {/* Glow ring */}
+                <div className="absolute inset-0 rounded-xl bg-electric-cyan/20 blur-xl -z-10" />
+              </motion.button>
             </Link>
 
+            {/* Secondary CTA */}
             <Link to="/demo">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 glass-card text-white font-bold rounded-xl text-lg hover:bg-white/10 transition-colors flex flex-col items-start gap-0.5"
+                className="px-8 py-4 rounded-xl text-lg font-semibold text-white border border-white/[0.1] bg-white/[0.03] backdrop-blur-sm hover:bg-white/[0.06] hover:border-white/[0.15] transition-all duration-300 flex items-center gap-2"
               >
-                <div className="flex items-center gap-2">
-                  <Play className="w-5 h-5 fill-current" />
-                  Try Live Demo
-                </div>
-                <span className="text-xs font-normal text-slate-400 ml-7">Explore in 2 minutes</span>
+                Live Demo
+                <ArrowRight className="w-4 h-4 opacity-60" />
               </motion.button>
             </Link>
           </motion.div>
 
-          {/* Floating Network Badges & Trust Indicators */}
+          {/* Chain Icons Row */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 1 }}
-            className="absolute bottom-12 left-0 right-0 space-y-8"
+            className="flex items-center justify-center gap-4 sm:gap-6 mb-8"
           >
-            <div className="flex justify-center items-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-              <motion.div whileHover={{ y: -10, scale: 1.1, filter: 'drop-shadow(0 0 10px #627EEA)' }} transition={{ type: 'spring', stiffness: 300, damping: 10 }}>
-                <EthereumIcon className="w-10 h-10 text-[#627EEA]" />
+            {chainIcons.map((chain, index) => (
+              <motion.div
+                key={chain.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
+                whileHover={{
+                  y: -8,
+                  scale: 1.1,
+                  filter: `drop-shadow(0 0 12px ${chain.color})`,
+                }}
+                className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm cursor-pointer transition-colors duration-200 hover:border-white/[0.12]"
+              >
+                <chain.Icon
+                  className="w-6 h-6 sm:w-7 sm:h-7"
+                  style={{ color: chain.color }}
+                />
               </motion.div>
-              <motion.div whileHover={{ y: -10, scale: 1.1, filter: 'drop-shadow(0 0 10px #14F195)' }} transition={{ type: 'spring', stiffness: 300, damping: 10 }}>
-                <SolanaIcon className="w-8 h-8 text-[#14F195]" />
-              </motion.div>
-              <motion.div whileHover={{ y: -10, scale: 1.1, filter: 'drop-shadow(0 0 10px #0052FF)' }} transition={{ type: 'spring', stiffness: 300, damping: 10 }}>
-                <BaseIcon className="w-8 h-8 text-[#0052FF]" />
-              </motion.div>
-              <motion.div whileHover={{ y: -10, scale: 1.1, filter: 'drop-shadow(0 0 10px #2D374B)' }} transition={{ type: 'spring', stiffness: 300, damping: 10 }}>
-                <ArbitrumIcon className="w-8 h-8 text-[#2D374B]" />
-              </motion.div>
-              <motion.div whileHover={{ y: -10, scale: 1.1, filter: 'drop-shadow(0 0 10px #8247E5)' }} transition={{ type: 'spring', stiffness: 300, damping: 10 }}>
-                <PolygonIcon className="w-8 h-8 text-[#8247E5]" />
-              </motion.div>
-            </div>
+            ))}
+          </motion.div>
+        </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500 font-medium">
-              <span className="flex items-center gap-2">✓ Early access for waitlist members</span>
-              <span className="flex items-center gap-2">✓ TypeScript, Python & Go SDKs</span>
-              <span className="flex items-center gap-2">✓ SOC 2 compliant</span>
-            </div>
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            className="flex flex-col items-center gap-2 text-slate-500"
+          >
+            <span className="text-xs uppercase tracking-widest">Scroll</span>
+            <ChevronDown className="w-5 h-5" />
           </motion.div>
         </motion.div>
       </div>
-    </section>
+    </AuroraBackground>
   );
 }

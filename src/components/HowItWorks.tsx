@@ -1,152 +1,166 @@
 import { motion } from 'framer-motion';
-import { Radio, Brain, Code } from 'lucide-react';
-import AnimatedSection, { StaggerContainer, StaggerItem } from './AnimatedSection';
-import ParallaxSection from './ParallaxSection';
+import { Plug, Brain, Code } from 'lucide-react';
+import { TextGenerateEffect } from './ui/TextGenerateEffect';
+import { TracingBeam } from './ui/TracingBeam';
+import { GridBackground } from './ui/GridBackground';
 
 const steps = [
   {
-    icon: Radio,
     number: '01',
-    title: 'Real-Time Indexing',
-    description: 'Kafka-powered pipelines ingest blockchain events in real-time across Ethereum, Solana, Base, Arbitrum, and Polygon.',
-    color: 'neon-cyan',
+    icon: Plug,
+    title: 'Connect & Index',
+    description:
+      'Connect wallet addresses or ENS names across any supported chain. Our Kafka-powered pipelines begin real-time indexing within seconds, capturing every transaction, token transfer, and smart contract interaction.',
+    visual: (
+      <div className="flex flex-wrap gap-2 mt-4">
+        {['Ethereum', 'Solana', 'Base', 'Arbitrum', 'Polygon'].map(
+          (chain, i) => (
+            <motion.span
+              key={chain}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 + i * 0.1 }}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium border border-electric-cyan/20 bg-electric-cyan/5 text-electric-cyan"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-electric-cyan animate-pulse" />
+              {chain}
+            </motion.span>
+          )
+        )}
+      </div>
+    ),
   },
   {
-    icon: Brain,
     number: '02',
-    title: 'ML Entity Resolution',
-    description: 'Proprietary algorithms cluster wallets into entities and compute smart-money scores using historical performance data.',
-    color: 'neon-violet',
+    icon: Brain,
+    title: 'Analyze & Resolve',
+    description:
+      'Machine learning algorithms cluster related wallets into unified entities, compute smart-money scores, and assign behavioral labels with confidence metrics you can trust.',
+    visual: (
+      <div className="mt-4 space-y-3">
+        {[
+          { label: 'Whale Detection', value: 97, color: 'from-electric-cyan to-neon-cyan' },
+          { label: 'Fund Clustering', value: 92, color: 'from-quantum-purple to-holo-purple' },
+          { label: 'Bot Identification', value: 88, color: 'from-plasma-emerald to-neon-emerald' },
+        ].map((bar) => (
+          <div key={bar.label}>
+            <div className="flex justify-between text-xs mb-1">
+              <span className="text-slate-400">{bar.label}</span>
+              <span className="text-white font-mono">{bar.value}%</span>
+            </div>
+            <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: `${bar.value}%` }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
+                className={`h-full rounded-full bg-gradient-to-r ${bar.color}`}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    ),
   },
   {
-    icon: Code,
     number: '03',
-    title: 'GraphQL API Delivery',
-    description: 'Query the entire intelligence layer via a unified GraphQL API. SDKs for TypeScript, Python, and Go ship production-ready.',
-    color: 'neon-emerald',
+    icon: Code,
+    title: 'Query & Act',
+    description:
+      'Access the entire intelligence layer through a unified GraphQL API. Build dashboards, trigger alerts, execute copy-trades, and power compliance workflows with type-safe SDKs.',
+    visual: (
+      <div className="mt-4 rounded-lg bg-void-deep/60 border border-white/[0.06] p-3 font-mono text-xs overflow-hidden">
+        <div className="text-slate-500">{'query {'}</div>
+        <div className="pl-4">
+          <span className="text-electric-cyan">smartWallets</span>
+          <span className="text-slate-500">(</span>
+          <span className="text-solar-amber">minScore</span>
+          <span className="text-slate-500">: </span>
+          <span className="text-plasma-emerald">90</span>
+          <span className="text-slate-500">) {'{'}</span>
+        </div>
+        <div className="pl-8 text-quantum-purple">address</div>
+        <div className="pl-8 text-quantum-purple">entity</div>
+        <div className="pl-8 text-quantum-purple">pnl30d</div>
+        <div className="pl-4 text-slate-500">{'}'}</div>
+        <div className="text-slate-500">{'}'}</div>
+      </div>
+    ),
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="relative py-32 sm:py-48 overflow-hidden bg-void-deep perspective-2000">
-      {/* Background depth map */}
-      {/* Background depth map */}
-      <ParallaxSection speed={0.2} className="absolute inset-0 z-0">
-        <div className="absolute inset-0 dot-pattern opacity-10" />
-      </ParallaxSection>
-      <ParallaxSection speed={0.4} className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-electric-cyan/5 rounded-full blur-[120px]" />
-      </ParallaxSection>
+    <section id="how-it-works" className="relative py-24 sm:py-32 overflow-hidden">
+      <GridBackground>
+        <div className="relative max-w-7xl mx-auto px-6">
+          {/* Section Header */}
+          <div className="text-center mb-16 sm:mb-20">
+            <motion.span
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-block px-5 py-2 rounded-full text-sm font-medium text-plasma-emerald mb-6 border border-plasma-emerald/20 bg-plasma-emerald/5"
+            >
+              How It Works
+            </motion.span>
 
-      <div className="relative max-w-7xl mx-auto px-6">
-        <AnimatedSection className="text-center mb-24">
-          <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-block px-5 py-2 rounded-full glass-card text-sm font-medium text-plasma-emerald mb-8 border border-plasma-emerald/20 shadow-[0_0_20px_rgba(16,185,129,0.1)]"
-          >
-            Workflow Engine
-          </motion.span>
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8">
-            How <span className="gradient-text">WalletWeaver</span> Works
-          </h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Enterprise-grade infrastructure built for speed, scale, and reliability.
-          </p>
-        </AnimatedSection>
-
-        <StaggerContainer className="relative grid md:grid-cols-3 gap-12 sm:gap-8" staggerDelay={0.25}>
-          {/* Kinetic Connection Line */}
-          <div className="hidden md:block absolute top-[40%] left-0 right-0 h-1 z-0">
-            <div className="relative w-full h-full bg-slate-800/30 rounded-full overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-electric-cyan/10 via-quantum-purple/10 to-plasma-emerald/10" />
-              <motion.div
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5, ease: 'circOut' }}
-                className="absolute inset-0 bg-gradient-to-r from-electric-cyan via-quantum-purple to-plasma-emerald origin-left shadow-[0_0_20px_rgba(0,229,255,0.4)]"
-              />
-              {/* Data packet animation */}
-              <motion.div
-                animate={{ x: ['0%', '100%'] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-                className="absolute top-0 bottom-0 w-20 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 blur-sm"
-              />
-            </div>
+            <TextGenerateEffect
+              words="Three Steps to On-Chain Intelligence"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight max-w-4xl mx-auto"
+            />
           </div>
 
-          {steps.map((step, index) => (
-            <StaggerItem key={index}>
-              <motion.div
-                whileHover={{ y: -15, scale: 1.05, rotateX: 5, rotateY: index === 0 ? 5 : index === 2 ? -5 : 0 }}
-                transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-                className="relative z-10 perspective-1000"
-              >
-                {/* Step number floating badge */}
-                <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3 + index * 0.2 }}
-                  className="absolute -top-6 left-1/2 -translate-x-1/2 z-30"
-                >
-                  <div className={`glass-card-strong px-5 py-1.5 border-${step.color}/40 shadow-lg shadow-${step.color}/20 backdrop-blur-xl`}>
-                    <span className={`text-lg font-mono font-bold text-${step.color} tracking-widest`}>
-                      {step.number}
-                    </span>
-                  </div>
-                </motion.div>
-
-                {/* 3D Card */}
-                <div className="relative glass-card-strong p-8 pt-16 pb-10 text-center group hover:border-electric-cyan/40 transition-all duration-500 rounded-3xl preserve-3d">
-                  {/* Depth layers */}
-                  <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-b from-${step.color}/20 to-transparent -translate-z-20`} />
-
-                  {/* Icon with orbital effect */}
-                  <div className="relative mb-8 inline-block preserve-3d">
-                    <motion.div
-                      whileHover={{ rotateZ: 180 }}
-                      transition={{ duration: 0.8 }}
-                      className={`relative z-10 p-5 rounded-2xl bg-${step.color}/10 border border-${step.color}/20 shadow-[0_0_30px_rgba(0,0,0,0.5)]`}
-                    >
-                      <step.icon className={`w-10 h-10 text-${step.color}`} />
-                    </motion.div>
-                    {/* Orbit rings */}
-                    <div className={`absolute inset-0 -m-2 border border-${step.color}/10 rounded-full animate-[spin_10s_linear_infinite]`} style={{ borderRadius: '40%' }} />
-                    <div className={`absolute inset-0 -m-4 border border-${step.color}/5 rounded-full animate-[spin_7s_linear_infinite_reverse]`} style={{ borderRadius: '45%' }} />
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-electric-cyan transition-colors translate-z-10">
-                    {step.title}
-                  </h3>
-                  <p className="text-slate-400 leading-relaxed text-lg translate-z-10">
-                    {step.description}
-                  </p>
-
-                  {/* Bottom glow */}
-                  <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-${step.color} to-transparent opacity-0 group-hover:opacity-100 transition-opacity shadow-[0_-10px_40px_${step.color}]`} />
-                </div>
-
-                {/* Node on timeline */}
-                <div className="hidden md:block absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+          {/* Steps with Tracing Beam */}
+          <div className="max-w-3xl mx-auto">
+            <TracingBeam>
+              <div className="space-y-16 sm:space-y-24">
+                {steps.map((step, index) => (
                   <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.5 + index * 0.2, type: 'spring' }}
-                    className={`w-6 h-6 rounded-full bg-void-deep border-4 border-${step.color} shadow-[0_0_20px_${step.color}] relative`}
+                    key={step.number}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    transition={{
+                      duration: 0.7,
+                      delay: index * 0.15,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
                   >
-                    <div className={`absolute inset-0 -m-2 rounded-full border border-${step.color} opacity-30 animate-ping`} />
+                    <div className="relative rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm p-6 sm:p-8 hover:border-white/[0.12] hover:bg-white/[0.04] transition-all duration-500 group">
+                      {/* Step number badge */}
+                      <div className="absolute -top-4 -left-2 sm:left-4">
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-electric-cyan/20 to-quantum-purple/20 border border-electric-cyan/30 text-xs font-mono font-bold text-electric-cyan shadow-[0_0_15px_rgba(0,229,255,0.2)]">
+                          {step.number}
+                        </span>
+                      </div>
+
+                      {/* Icon + Title row */}
+                      <div className="flex items-center gap-3 mb-4 mt-2">
+                        <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-electric-cyan/10 to-quantum-purple/10 border border-white/[0.06] group-hover:border-electric-cyan/20 transition-colors">
+                          <step.icon className="w-6 h-6 text-electric-cyan" />
+                        </div>
+                        <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-electric-cyan transition-colors">
+                          {step.title}
+                        </h3>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-sm sm:text-base leading-relaxed text-slate-400 mb-2">
+                        {step.description}
+                      </p>
+
+                      {/* Step-specific visual */}
+                      {step.visual}
+                    </div>
                   </motion.div>
-                </div>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
+                ))}
+              </div>
+            </TracingBeam>
+          </div>
+        </div>
+      </GridBackground>
     </section>
   );
 }

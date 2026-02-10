@@ -44,17 +44,21 @@ export default function DemoLayout() {
         {/* Header */}
         <div className="h-20 flex items-center px-6 border-b border-white/5">
           <Link to="/" className="group flex items-center gap-3 w-full">
-            <div className="relative flex items-center justify-center w-10 h-10 shrink-0">
-              <img src="/favicon.svg" alt="Logo" className="w-8 h-8 object-contain relative z-10" />
-              <div className="absolute inset-0 bg-neon-cyan/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
-            </div>
+            <motion.div
+              whileHover={{ scale: 1.05, rotate: 5 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              className="relative flex items-center justify-center w-10 h-10 shrink-0"
+            >
+              <img src="/favicon.svg" alt="WalletWeaver Logo" className="w-8 h-8 object-contain relative z-10" />
+              <div className="absolute inset-0 bg-electric-cyan/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+            </motion.div>
             {isSidebarOpen && (
               <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 className="flex flex-col"
               >
-                <span className="font-bold text-white tracking-tight">Wallet<span className="text-neon-cyan">Weaver</span></span>
+                <span className="font-bold text-white tracking-tight">Wallet<span className="gradient-text">Weaver</span></span>
                 <span className="text-[10px] uppercase tracking-widest text-slate-500">Terminal v2.0</span>
               </motion.div>
             )}

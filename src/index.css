@@ -616,6 +616,44 @@
     }
   }
 
+  @keyframes aurora {
+    0% {
+      background-position: 50% 50%, 50% 50%;
+    }
+
+    50% {
+      background-position: 350% 50%, 350% 50%;
+    }
+
+    100% {
+      background-position: 50% 50%, 50% 50%;
+    }
+  }
+
+  @keyframes scroll-bounce {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(8px);
+    }
+  }
+
+  @keyframes glow-pulse-slow {
+
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+
+    50% {
+      opacity: 0.6;
+    }
+  }
+
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
 

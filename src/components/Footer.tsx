@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Mail, Twitter, Github, Linkedin } from 'lucide-react';
-import AnimatedSection from './AnimatedSection';
+import { GridBackground } from './ui/GridBackground';
 
 const footerLinks = {
   product: [
@@ -32,34 +32,39 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-void">
-      {/* Background */}
-      <div className="absolute inset-0 bg-void" />
-      <div className="absolute inset-0 grid-overlay opacity-5" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric-cyan/20 to-transparent shadow-[0_0_15px_rgba(0,229,255,0.4)]" />
-      <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-quantum-purple/5 blur-[100px] rounded-full" />
-      <div className="absolute -left-40 top-0 w-80 h-80 bg-electric-cyan/5 blur-[80px] rounded-full" />
+    <footer className="relative overflow-hidden">
+      <GridBackground>
+        {/* Top gradient divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-neon-cyan/20 to-transparent" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-20">
-        <AnimatedSection>
-          <div className="grid md:grid-cols-4 gap-12 mb-16">
-            {/* Brand */}
-            <div className="md:col-span-1">
-              <Link to="/" className="flex items-center gap-3 mb-6 group relative">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-16">
+          {/* 4-column grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 mb-14">
+            {/* Brand column */}
+            <div className="sm:col-span-2 md:col-span-1">
+              <Link to="/" className="flex items-center gap-3 group relative mb-5">
                 <motion.div
-                  whileHover={{ rotate: 10, scale: 1.1 }}
+                  whileHover={{ scale: 1.05, rotate: 5 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                   className="relative flex items-center justify-center w-10 h-10"
                 >
-                  <img src="/favicon.svg" alt="WalletWeaver Logo" className="w-8 h-8 object-contain relative z-10" />
-                  <div className="absolute inset-0 bg-electric-cyan/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
+                  <img
+                    src="/favicon.svg"
+                    alt="WalletWeaver Logo"
+                    className="w-8 h-8 object-contain relative z-10"
+                  />
+                  <div className="absolute inset-0 bg-electric-cyan/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
                 </motion.div>
-                <span className="text-xl font-bold text-white group-hover:text-electric-cyan transition-colors duration-300">
+                <span className="text-lg font-bold text-white group-hover:text-electric-cyan transition-colors duration-300">
                   Wallet<span className="gradient-text">Weaver</span>
                 </span>
               </Link>
-              <p className="text-base text-slate-400 mb-8 leading-relaxed">
-                See The On-Chain Story <br />Behind Every Wallet
+
+              <p className="text-sm text-slate-400 leading-relaxed mb-6">
+                See The On-Chain Story Behind Every Wallet
               </p>
+
+              {/* Social links */}
               <div className="flex items-center gap-3">
                 {socialLinks.map((social) => (
                   <motion.a
@@ -67,11 +72,12 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, y: -3 }}
-                    className="p-3 glass-card rounded-xl text-slate-400 hover:text-white hover:bg-electric-cyan/10 hover:border-electric-cyan/30 transition-all duration-300"
+                    whileHover={{ y: -2 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                    className="p-2.5 glass-card rounded-xl text-slate-400 hover:text-white hover:bg-electric-cyan/10 hover:border-electric-cyan/30 transition-all duration-300"
                     aria-label={social.label}
                   >
-                    <social.icon className="w-5 h-5" />
+                    <social.icon className="w-4 h-4" />
                   </motion.a>
                 ))}
               </div>
@@ -79,14 +85,16 @@ export default function Footer() {
 
             {/* Product */}
             <div>
-              <h4 className="font-bold text-white mb-6 text-lg">Product</h4>
-              <ul className="space-y-4">
+              <h4 className="font-semibold text-white mb-5 text-sm uppercase tracking-wider">
+                Product
+              </h4>
+              <ul className="space-y-3">
                 {footerLinks.product.map((link) => (
                   <li key={link.label}>
                     <motion.a
                       href={link.href}
-                      whileHover={{ x: 4 }}
-                      className="text-base text-slate-400 hover:text-electric-cyan transition-colors inline-block font-medium"
+                      whileHover={{ x: 3 }}
+                      className="text-sm text-slate-400 hover:text-electric-cyan transition-colors inline-block"
                     >
                       {link.label}
                     </motion.a>
@@ -97,14 +105,16 @@ export default function Footer() {
 
             {/* Developers */}
             <div>
-              <h4 className="font-bold text-white mb-6 text-lg">Developers</h4>
-              <ul className="space-y-4">
+              <h4 className="font-semibold text-white mb-5 text-sm uppercase tracking-wider">
+                Developers
+              </h4>
+              <ul className="space-y-3">
                 {footerLinks.developers.map((link) => (
                   <li key={link.label}>
                     <motion.a
                       href={link.href}
-                      whileHover={{ x: 4 }}
-                      className="text-base text-slate-400 hover:text-electric-cyan transition-colors inline-block font-medium"
+                      whileHover={{ x: 3 }}
+                      className="text-sm text-slate-400 hover:text-electric-cyan transition-colors inline-block"
                     >
                       {link.label}
                     </motion.a>
@@ -115,16 +125,18 @@ export default function Footer() {
 
             {/* Company */}
             <div>
-              <h4 className="font-bold text-white mb-6 text-lg">Company</h4>
-              <ul className="space-y-4">
+              <h4 className="font-semibold text-white mb-5 text-sm uppercase tracking-wider">
+                Company
+              </h4>
+              <ul className="space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.label}>
                     <motion.a
                       href={link.href}
-                      whileHover={{ x: 4 }}
-                      className="text-base text-slate-400 hover:text-electric-cyan transition-colors inline-flex items-center gap-2 font-medium"
+                      whileHover={{ x: 3 }}
+                      className="text-sm text-slate-400 hover:text-electric-cyan transition-colors inline-flex items-center gap-2"
                     >
-                      {link.icon && <link.icon className="w-4 h-4" />}
+                      {link.icon && <link.icon className="w-3.5 h-3.5" />}
                       {link.label}
                     </motion.a>
                   </li>
@@ -132,16 +144,14 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-        </AnimatedSection>
 
-        {/* Bottom bar */}
-        <AnimatedSection delay={0.2}>
-          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-sm text-slate-500 font-medium">
-              © {new Date().getFullYear()} WalletWeaver. All rights reserved.
+          {/* Bottom bar */}
+          <div className="pt-8 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="text-sm text-slate-500">
+              &copy; {new Date().getFullYear()} WalletWeaver. All rights reserved.
             </div>
-            <div className="flex items-center gap-8 text-sm text-slate-500 font-medium">
-              {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
+            <div className="flex items-center gap-6 text-sm text-slate-500">
+              {['Privacy', 'Terms', 'Cookies'].map((item) => (
                 <motion.a
                   key={item}
                   href="#"
@@ -153,8 +163,8 @@ export default function Footer() {
               ))}
             </div>
           </div>
-        </AnimatedSection>
-      </div>
+        </div>
+      </GridBackground>
     </footer>
   );
 }
