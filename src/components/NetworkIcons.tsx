@@ -2,48 +2,70 @@ import { SVGProps } from "react";
 
 export function EthereumIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M11.944 24L12 23.976V8.59L0 13.97L11.944 24Z" opacity=".6" />
-      <path d="M12.056 24L24 13.97L12.056 8.59V23.976L12.056 24Z" opacity=".6" />
-      <path d="M12 0L0 12.446L12 17.754V0Z" />
-      <path d="M12.056 0V17.754L24 12.446L12.056 0Z" />
-      <path d="M11.944 19.044L0 13.444L11.944 24V19.044Z" opacity=".2" />
-      <path d="M12.056 19.044V24L24 13.444L12.056 19.044Z" opacity=".2" />
+    <svg viewBox="0 0 784.37 1277.39" {...props}>
+      <g>
+        <polygon fill="#343434" fillRule="nonzero" points="392.07,0 383.5,29.11 383.5,873.74 392.07,882.29 784.13,650.54 " />
+        <polygon fill="#8C8C8C" fillRule="nonzero" points="392.07,0 -0,650.54 392.07,882.29 392.07,472.33 " />
+        <polygon fill="#3C3C3B" fillRule="nonzero" points="392.07,956.52 387.24,962.41 387.24,1263.28 392.07,1277.38 784.37,724.89 " />
+        <polygon fill="#8C8C8C" fillRule="nonzero" points="392.07,1277.38 392.07,956.52 -0,724.89 " />
+        <polygon fill="#141414" fillRule="nonzero" points="392.07,882.29 784.13,650.54 392.07,472.33 " />
+        <polygon fill="#393939" fillRule="nonzero" points="0,650.54 392.07,882.29 392.07,472.33 " />
+      </g>
     </svg>
   );
 }
 
 export function SolanaIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M19.9992 3.5H5.4992C5.1892 3.5 4.8892 3.65 4.6992 3.9L3.1992 5.9C2.7092 6.56 3.1792 7.5 3.9992 7.5H18.4992C18.8092 7.5 19.1092 7.35 19.2992 7.1L20.7992 5.1C21.2892 4.44 20.8192 3.5 19.9992 3.5Z" />
-      <path d="M18.4992 8.5H3.99923C3.68923 8.5 3.38923 8.65 3.19923 8.9L1.69923 10.9C1.20923 11.56 1.67923 12.5 2.49923 12.5H16.9992C17.3092 12.5 17.6092 12.35 17.7992 12.1L19.2992 10.1C19.7892 9.44 19.3192 8.5 18.4992 8.5Z" />
-      <path d="M19.9992 13.5H5.4992C5.1892 13.5 4.8892 13.65 4.6992 13.9L3.1992 15.9C2.7092 16.56 3.1792 17.5 3.9992 17.5H18.4992C18.8092 17.5 19.1092 17.35 19.2992 17.1L20.7992 15.1C21.2892 14.44 20.8192 13.5 19.9992 13.5Z" />
+    <svg viewBox="0 0 397.7 311.7" {...props}>
+      <defs>
+        <linearGradient id="SolanaGradient1" gradientUnits="userSpaceOnUse" x1="360.8791" y1="351.4553" x2="141.213" y2="-69.2936" gradientTransform="matrix(1 0 0 -1 0 314)">
+          <stop offset="0" style={{ stopColor: "#00FFA3" }} />
+          <stop offset="1" style={{ stopColor: "#DC1FFF" }} />
+        </linearGradient>
+        <linearGradient id="SolanaGradient2" gradientUnits="userSpaceOnUse" x1="264.8291" y1="401.6014" x2="45.163" y2="-19.1475" gradientTransform="matrix(1 0 0 -1 0 314)">
+          <stop offset="0" style={{ stopColor: "#00FFA3" }} />
+          <stop offset="1" style={{ stopColor: "#DC1FFF" }} />
+        </linearGradient>
+        <linearGradient id="SolanaGradient3" gradientUnits="userSpaceOnUse" x1="312.5484" y1="376.688" x2="92.8822" y2="-44.061" gradientTransform="matrix(1 0 0 -1 0 314)">
+          <stop offset="0" style={{ stopColor: "#00FFA3" }} />
+          <stop offset="1" style={{ stopColor: "#DC1FFF" }} />
+        </linearGradient>
+      </defs>
+      <path fill="url(#SolanaGradient1)" d="M64.6,237.9c2.4-2.4,5.7-3.8,9.2-3.8h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,237.9z" />
+      <path fill="url(#SolanaGradient2)" d="M64.6,3.8C67.1,1.4,70.4,0,73.8,0h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,3.8z" />
+      <path fill="url(#SolanaGradient3)" d="M333.1,120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8,0-8.7,7-4.6,11.1l62.7,62.7c2.4,2.4,5.7,3.8,9.2,3.8h317.4c5.8,0,8.7-7,4.6-11.1L333.1,120.1z" />
     </svg>
   );
 }
 
 export function BaseIcon(props: SVGProps<SVGSVGElement>) {
+  // Using img tag since we only have PNG
+  // We wrap it in a div or just render the img, but since the parent expects an Icon component that accepts SVG props,
+  // we can use the className from props for sizing.
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.5 13.933 8.5 12C8.5 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12Z" />
-    </svg>
+    <img src="/base-logo.png" alt="Base" className={props.className} style={{ objectFit: 'contain' }} />
   );
 }
 
 export function ArbitrumIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path fillRule="evenodd" clipRule="evenodd" d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24ZM9.63583 14.5029L12.3023 16.2996L17.7479 7.02525C17.7479 7.02525 10.5902 11.237 9.6358 14.503L9.63583 14.5029ZM8.26127 12.0125L9.60533 13.8824L11.5173 15.1706L15.394 8.56847C15.394 8.56847 9.87677 10.6033 8.26122 12.0125H8.26127ZM6.24158 13.6262L7.75475 14.8021L10.3687 16.5632L13.1205 11.8767C13.1205 11.8767 8.76176 11.0289 6.24158 13.6262Z" />
+    <svg viewBox="0 0 2500 2500" {...props}>
+      <path fill="#213147" d="M226,760v980c0,63,33,120,88,152l849,490c54,31,121,31,175,0l849-490c54-31,88-89,88-152V760c0-63-33-120-88-152l-849-490c-54-31-121-31-175,0L314,608c-54,31-87,89-87,152H226z"></path>
+      <path fill="#12AAFF" d="M1435,1440l-121,332c-3,9-3,19,0,29l208,571l241-139l-289-793C1467,1422,1442,1422,1435,1440z"></path>
+      <path fill="#12AAFF" d="M1678,882c-7-18-32-18-39,0l-121,332c-3,9-3,19,0,29l341,935l241-139L1678,883V882z"></path>
+      <path fill="#9DCCED" d="M1250,155c6,0,12,2,17,5l918,530c11,6,17,18,17,30v1060c0,12-7,24-17,30l-918,530c-5,3-11,5-17,5s-12-2-17-5l-918-530c-11-6-17-18-17-30V719c0-12,7-24,17-30l918-530c5-3,11-5,17-5l0,0V155z M1250,0c-33,0-65,8-95,25L237,555c-59,34-95,96-95,164v1060c0,68,36,130,95,164l918,530c29,17,62,25,95,25s65-8,95-25l918-530c59-34,95-96,95-164V719c0-68-36-130-95-164L1344,25c-29-17-62-25-95-25l0,0H1250z"></path>
+      <polygon fill="#213147" points="642,2179 727,1947 897,2088 738,2234"></polygon>
+      <path fill="#FFFFFF" d="M1172,644H939c-17,0-33,11-39,27L401,2039l241,139l550-1507c5-14-5-28-19-28L1172,644z"></path>
+      <path fill="#FFFFFF" d="M1580,644h-233c-17,0-33,11-39,27L738,2233l241,139l620-1701c5-14-5-28-19-28V644z"></path>
     </svg>
   );
 }
 
 export function PolygonIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M16.5 2.5L21.5 5.5V11.5L16.5 14.5L11.5 11.5V5.5L16.5 2.5Z" />
-      <path d="M7.5 9.5L12.5 12.5V18.5L7.5 21.5L2.5 18.5V12.5L7.5 9.5Z" />
+    <svg viewBox="0 0 178 161" {...props}>
+      <path fill="#6C00F6" d="M66.8,54.7l-16.7-9.7L0,74.1v58l50.1,29l50.1-29V41.9L128,25.8l27.8,16.1v32.2L128,90.2l-16.7-9.7v25.8l16.7,9.7l50.1-29V29L128,0L77.9,29v90.2l-27.8,16.1l-27.8-16.1V86.9l27.8-16.1l16.7,9.7V54.7z" />
     </svg>
   );
 }

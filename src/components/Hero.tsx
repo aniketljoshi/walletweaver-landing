@@ -127,23 +127,23 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 1 }}
-            className="absolute bottom-12 left-0 right-0 space-y-8"
+            className="relative mt-20 w-full max-w-4xl mx-auto space-y-8"
           >
             <div className="flex justify-center items-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
               <motion.div whileHover={{ y: -10, scale: 1.1, filter: 'drop-shadow(0 0 10px #627EEA)' }} transition={{ type: 'spring', stiffness: 300, damping: 10 }}>
-                <EthereumIcon className="w-10 h-10 text-[#627EEA]" />
+                <EthereumIcon className="w-10 h-10" />
               </motion.div>
               <motion.div whileHover={{ y: -10, scale: 1.1, filter: 'drop-shadow(0 0 10px #14F195)' }} transition={{ type: 'spring', stiffness: 300, damping: 10 }}>
-                <SolanaIcon className="w-8 h-8 text-[#14F195]" />
+                <SolanaIcon className="w-8 h-8" />
               </motion.div>
               <motion.div whileHover={{ y: -10, scale: 1.1, filter: 'drop-shadow(0 0 10px #0052FF)' }} transition={{ type: 'spring', stiffness: 300, damping: 10 }}>
-                <BaseIcon className="w-8 h-8 text-[#0052FF]" />
+                <BaseIcon className="w-8 h-8" />
               </motion.div>
               <motion.div whileHover={{ y: -10, scale: 1.1, filter: 'drop-shadow(0 0 10px #2D374B)' }} transition={{ type: 'spring', stiffness: 300, damping: 10 }}>
-                <ArbitrumIcon className="w-8 h-8 text-[#2D374B]" />
+                <ArbitrumIcon className="w-8 h-8" />
               </motion.div>
               <motion.div whileHover={{ y: -10, scale: 1.1, filter: 'drop-shadow(0 0 10px #8247E5)' }} transition={{ type: 'spring', stiffness: 300, damping: 10 }}>
-                <PolygonIcon className="w-8 h-8 text-[#8247E5]" />
+                <PolygonIcon className="w-8 h-8" />
               </motion.div>
             </div>
 
