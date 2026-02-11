@@ -20,7 +20,7 @@ const footerLinks = {
     { label: 'About', href: '#' },
     { label: 'Enterprise', href: '#' },
     { label: 'Security', href: '#' },
-    { label: 'Contact', href: 'mailto:founders@walletweaver.com', icon: Mail },
+    { label: 'Contact', href: 'mailto:contact@walletweaver.com', icon: Mail },
   ],
 };
 
